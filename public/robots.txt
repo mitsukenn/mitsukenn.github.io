@@ -1,5 +1,4 @@
 User-agent: *
 Allow: /
 
-# TODO: 独自ドメイン確定後に差し替え
-Sitemap: https://mitsukenn.github.io/sitemap-index.xml
+Sitemap: https://machino-ai.jp/sitemap-index.xml
