@@ -914,6 +914,167 @@ a {
   }
 }
 
+/* ---------- ビフォーアフター実例 ---------- */
+.cases {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.case-card {
+  background: #fff;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 24px 22px;
+  display: flex;
+  flex-direction: column;
+}
+
+.case-card__title {
+  font-size: 16px;
+  font-weight: 700;
+  text-align: center;
+  line-height: 1.5;
+  margin-bottom: 16px;
+}
+
+.case-card__title span {
+  display: block;
+  color: var(--accent-dark);
+}
+
+.case-panel {
+  border-radius: var(--radius-sm);
+  padding: 12px 16px;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.case-panel--before {
+  background: var(--bg-soft);
+  color: var(--text-weak);
+}
+
+.case-panel--after {
+  background: var(--accent-soft);
+  color: var(--text);
+}
+
+.case-panel__label {
+  display: block;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  margin-bottom: 4px;
+}
+
+.case-panel--before .case-panel__label {
+  color: var(--text-weak);
+}
+
+.case-panel--after .case-panel__label {
+  color: var(--accent-dark);
+}
+
+.case-card__arrow {
+  text-align: center;
+  color: var(--accent);
+  font-size: 22px;
+  line-height: 1;
+  margin: 8px 0;
+}
+
+.case-card__result {
+  margin-top: auto;
+  padding-top: 14px;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--accent-dark);
+}
+
+/* カード内の補足（正直な注記） */
+.case-panel small {
+  display: block;
+  font-size: 12px;
+  color: var(--text-weak);
+  margin-top: 4px;
+}
+
+/* 「続かなかった人」向けのフック */
+.cases__hook {
+  text-align: center;
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--accent-dark);
+  margin-top: 32px;
+  line-height: 1.7;
+}
+
+.cases__note {
+  text-align: center;
+  font-size: 13px;
+  color: var(--text-weak);
+  margin-top: 24px;
+}
+
+.cases__hook + .cases__note {
+  margin-top: 8px;
+}
+
+@media (max-width: 800px) {
+  .cases {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---------- 選ばれる理由（3つの約束） ---------- */
+.promises {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.promise-card {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 32px 24px;
+  text-align: center;
+}
+
+.promise-card__check {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+.promise-card h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+  line-height: 1.6;
+}
+
+.promise-card p {
+  font-size: 15px;
+  color: var(--text-weak);
+  text-align: left;
+}
+
+@media (max-width: 800px) {
+  .promises {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* ---------- CTAセクション ---------- */
 .cta-section {
   background: var(--accent-soft);

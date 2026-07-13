@@ -39,7 +39,7 @@ const works = [
         <p>{SITE.subcopy}</p>
         <div class="hero__cta">
           <a href={SITE.lineUrl} class="btn btn--line">LINEで無料相談してみる</a>
-          <a href="#service" class="btn btn--ghost">どんなサービス？を見る</a>
+          <a href="#service" class="btn btn--ghost">できることを見る</a>
         </div>
         <p class="hero__note">※ 相談は無料です。しつこい営業は一切しません。</p>
       </div>
@@ -84,8 +84,65 @@ const works = [
     </div>
   </section>
 
+  <!-- 2.5 ビフォーアフター実例（「事務が半分になる」を具体で見せる） -->
+  <section class="section section--soft deco deco--dots-tr">
+    <div class="container">
+      <div class="section-title">
+        <span class="section-title__sub">できること</span>
+        <h2>たとえば、こんな作業が半分になります</h2>
+      </div>
+      <div class="cases">
+        <div class="case-card">
+          <p class="case-card__title"><span>見積書・請求書</span>作成の手間</p>
+          <div class="case-panel case-panel--before">
+            <span class="case-panel__label">いままで</span>
+            毎回ゼロから手入力。似た案件を探して転記し、1件およそ30分。
+          </div>
+          <div class="case-card__arrow" aria-hidden="true">↓</div>
+          <div class="case-panel case-panel--after">
+            <span class="case-panel__label">AIとなら</span>
+            よく使う文面や項目をAIに覚えさせて、下書きはおまかせ。あなたは確認と微調整だけ。<small>※最初の仕組みづくりからお手伝いします</small>
+          </div>
+          <p class="case-card__result">約30分 → 5分</p>
+        </div>
+        <div class="case-card">
+          <p class="case-card__title"><span>SNS・お知らせ</span>の文章づくり</p>
+          <div class="case-panel case-panel--before">
+            <span class="case-panel__label">いままで</span>
+            「何を書けばいいか」で手が止まり、1本に30分以上かかることも。
+          </div>
+          <div class="case-card__arrow" aria-hidden="true">↓</div>
+          <div class="case-panel case-panel--after">
+            <span class="case-panel__label">AIとなら</span>
+            伝えたい内容を箇条書きで渡すと3案。選んで直すだけで完成。
+          </div>
+          <p class="case-card__result">約30分 → 10分</p>
+        </div>
+        <div class="case-card">
+          <p class="case-card__title"><span>議事録・打合せメモ</span>の清書</p>
+          <div class="case-panel case-panel--before">
+            <span class="case-panel__label">いままで</span>
+            録音を聞き直しながら清書。1時間の会議で作成に1時間。
+          </div>
+          <div class="case-card__arrow" aria-hidden="true">↓</div>
+          <div class="case-panel case-panel--after">
+            <span class="case-panel__label">AIとなら</span>
+            音声から要点を自動で整理。見出しつきのメモにまとまります。
+          </div>
+          <p class="case-card__result">約60分 → 10分</p>
+        </div>
+      </div>
+      <p class="cases__hook">
+        「ChatGPTを触ってみたけど、続かなかった」——そんな方のご相談が、実は一番多いです。
+      </p>
+      <p class="cases__note">
+        ※ 目安の一例です。「うちのこの作業はどう？」というご相談から一緒に探します。
+      </p>
+    </div>
+  </section>
+
   <!-- 3. ごあいさつ（顔=安心を先に見せる） -->
-  <section class="section section--soft">
+  <section class="section">
     <div class="container">
       <div class="section-title">
         <span class="section-title__sub">ごあいさつ</span>
@@ -107,6 +164,33 @@ const works = [
           <p>
             <a href="/about/">くわしいプロフィールはこちら →</a>
           </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3.5 選ばれる理由（3つの約束） -->
+  <section class="section section--soft deco deco--plus-tl">
+    <div class="container">
+      <div class="section-title">
+        <span class="section-title__sub">選ばれる理由</span>
+        <h2>「まちのAI屋さん」3つの約束</h2>
+      </div>
+      <div class="promises">
+        <div class="promise-card">
+          <span class="promise-card__check" aria-hidden="true">✓</span>
+          <h3>むずかしい言葉は使いません</h3>
+          <p>専門用語ぬきで、わかることばだけでご説明します。同じことを何度聞いてもらっても構いません。</p>
+        </div>
+        <div class="promise-card">
+          <span class="promise-card__check" aria-hidden="true">✓</span>
+          <h3>売り込みはしません</h3>
+          <p>必要なことだけをご提案します。合わなければ「聞くだけ」で終わってOKです。</p>
+        </div>
+        <div class="promise-card">
+          <span class="promise-card__check" aria-hidden="true">✓</span>
+          <h3>地元で、ずっと隣に</h3>
+          <p>長崎の現場に合わせてサポート。保守もAI顧問も月額制で、「作って終わり」にしません。</p>
         </div>
       </div>
     </div>
@@ -234,7 +318,7 @@ const works = [
         <div class="flow-card">
           <span class="flow-card__num">2</span>
           <h3>雑談レベルでお話</h3>
-          <p>今のお仕事の様子を聞かせてください。売り込みはしません。</p>
+          <p>今のお仕事の様子を、そのまま聞かせてください。準備はいりません。</p>
         </div>
         <div class="flow-card">
           <span class="flow-card__num">3</span>
@@ -271,6 +355,35 @@ const works = [
       </section>
     )
   }
+
+  <!-- 8.5 よくある質問（抜粋・不安の先回り） -->
+  <section class="section section--soft">
+    <div class="container article">
+      <div class="section-title">
+        <span class="section-title__sub">よくある質問</span>
+        <h2>はじめてでも、大丈夫です</h2>
+      </div>
+      <div class="faq-item">
+        <h3>AIのことが全然わからなくても相談していいですか？</h3>
+        <p>もちろんです。「何を聞けばいいかわからない」という状態からのご相談が一番多いです。専門用語を使わずにご説明します。</p>
+      </div>
+      <div class="faq-item">
+        <h3>相談にお金はかかりますか？</h3>
+        <p>初回のご相談は無料です。LINEまたはお問い合わせフォームからお気軽にどうぞ。</p>
+      </div>
+      <div class="faq-item">
+        <h3>会社の情報をAIに入れて大丈夫ですか？</h3>
+        <p>入れていい情報・入れてはいけない情報の線引きからご説明します。情報を守るための設定を最初に一緒に行いますので、ご安心ください。</p>
+      </div>
+      <div class="faq-item">
+        <h3>ホームページだけ、AIだけ、の相談でも大丈夫ですか？</h3>
+        <p>大丈夫です。どちらか一方のご相談も歓迎です。両方まとめてのご相談ももちろん承ります。</p>
+      </div>
+      <p class="text-center mt-32">
+        <a href="/faq/" class="btn btn--ghost btn--sm">よくある質問をもっと見る</a>
+      </p>
+    </div>
+  </section>
 
   <!-- 9. 締めCTA -->
   <CtaSection />
