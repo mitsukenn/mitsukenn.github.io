@@ -15,6 +15,9 @@
   --accent-dark: #c9480a;
   --- */
 
+  /* ブランドカラー（ロゴの青） */
+  --brand: #004aad;
+
   --line-green: #06c755;
   --line-green-dark: #05a847;
 
@@ -170,15 +173,19 @@ a {
 }
 
 .header__logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
   font-size: 20px;
   font-weight: 700;
-  color: var(--text);
+  color: var(--brand);
   text-decoration: none;
   white-space: nowrap;
 }
 
-.header__logo span {
-  color: var(--accent);
+.header__logo img {
+  height: 34px;
+  width: auto;
 }
 
 .header__nav {
@@ -901,6 +908,13 @@ a {
 .footer__brand {
   font-size: 18px;
   font-weight: 700;
+  color: var(--brand);
+}
+
+.footer__mark {
+  height: 40px;
+  width: auto;
+  margin-bottom: 6px;
 }
 
 .footer__brand small {
