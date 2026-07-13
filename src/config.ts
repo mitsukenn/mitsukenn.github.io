@@ -10,8 +10,8 @@ export const SITE = {
   description:
     '長崎でAIの相談・AIセミナー・ホームページ制作なら「まちのAI屋さん」。補助金を活用したAI研修、月額制のAI顧問、Web制作・保守まで、地元の相談相手としてサポートします。',
 
-  // TODO: LINE公式アカウント開設後にURLを差し替え
-  lineUrl: 'https://lin.ee/XXXXXXX',
+  // LINE公式アカウント（@103fpxtv、2026-07-13開設）
+  lineUrl: 'https://lin.ee/XYH9dqc',
   // TODO: Formspree のフォームIDを取得後に差し替え
   formspreeEndpoint: 'https://formspree.io/f/XXXXXXXX',
 
