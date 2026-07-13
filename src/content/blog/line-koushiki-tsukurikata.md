@@ -3,7 +3,7 @@ title: 'LINE公式アカウントの作り方 — 小さなお店の予約・問
 description: 'LINE公式アカウントの作り方を店舗向けにやさしく解説。無料で始められる登録の手順、あいさつメッセージの設定、QRコードでお客様に案内するまでの流れを、長崎でAI相談を受けている私がまとめました。'
 pubDate: 2026-07-16
 category: tutorial
-draft: true
+draft: false
 ---
 
 <!-- 対象: 大濱さん -->
