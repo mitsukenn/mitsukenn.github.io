@@ -4,15 +4,15 @@
    ============================================ */
 
 :root {
-  /* --- アクセントカラー（A案: 温かみのあるオレンジ） --- */
+  /* --- アクセントカラー（水色系: 清潔感・誠実。2026-07-13決定） --- */
+  --accent: #0e8fbe;
+  --accent-soft: #e4f5fc;
+  --accent-dark: #0a6e93;
+
+  /* --- 旧A案: 温かみのあるオレンジ（比較用に保管）
   --accent: #e8590c;
   --accent-soft: #fff0e6;
   --accent-dark: #c9480a;
-
-  /* --- B案: 信頼感のあるブルー（A/B比較時はこちらに差し替え）
-  --accent: #1971c2;
-  --accent-soft: #e7f1fb;
-  --accent-dark: #14578f;
   --- */
 
   --line-green: #06c755;
@@ -30,6 +30,8 @@
 
   --font-body: 'Zen Maru Gothic', 'M PLUS Rounded 1c', 'Hiragino Maru Gothic ProN',
     'BIZ UDGothic', sans-serif;
+  /* 手書き風（代表あいさつ等のぬくもり演出用） */
+  --font-hand: 'Klee One', 'Zen Maru Gothic', sans-serif;
 }
 
 * {
@@ -47,7 +49,8 @@ body {
   color: var(--text);
   background: var(--bg);
   line-height: 1.9;
-  font-size: 16px;
+  /* ターゲット層（40〜60代）向けに大きめ基準 */
+  font-size: 17px;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -361,7 +364,7 @@ a {
 }
 
 .point-card__a {
-  font-size: 14px;
+  font-size: 15px;
   color: var(--text-weak);
   text-align: left;
 }
@@ -403,7 +406,7 @@ a {
 }
 
 .service-card p {
-  font-size: 14px;
+  font-size: 15px;
   color: var(--text-weak);
   text-align: left;
   flex-grow: 1;
@@ -568,8 +571,13 @@ a {
 }
 
 .profile__body p {
-  font-size: 15px;
+  font-size: 16px;
   margin-bottom: 12px;
+}
+
+/* 代表あいさつの手書き風テキスト */
+.handwriting {
+  font-family: var(--font-hand);
 }
 
 @media (max-width: 720px) {
@@ -759,7 +767,7 @@ a {
 }
 
 .flow-card p {
-  font-size: 14px;
+  font-size: 15px;
   color: var(--text-weak);
   text-align: left;
 }
