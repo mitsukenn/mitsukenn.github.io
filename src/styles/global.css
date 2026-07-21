@@ -372,6 +372,69 @@ a {
   justify-content: center;
 }
 
+/* --- バナー主役のFV --- */
+.hero--banner {
+  padding: 40px 0 56px;
+}
+
+.hero--banner .container {
+  text-align: center;
+}
+
+.hero-banner {
+  max-width: 1000px;
+  margin: 0 auto;
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+.hero-banner img {
+  width: 100%;
+  height: auto;
+}
+
+.hero--banner .hero__sub {
+  font-size: 16px;
+  color: var(--text-weak);
+  margin: 28px auto 24px;
+  max-width: 640px;
+}
+
+.hero--banner .hero__cta {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* スクリーンリーダー・SEO用（画面には出さない） */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (max-width: 720px) {
+  .hero--banner {
+    padding: 24px 0 44px;
+  }
+  .hero-banner {
+    border-radius: var(--radius-sm);
+  }
+  .hero--banner .hero__sub {
+    font-size: 15px;
+    text-align: left;
+    margin-top: 22px;
+  }
+}
+
 .hero__copy h1 {
   font-size: clamp(30px, 4.5vw, 44px);
   font-weight: 700;
