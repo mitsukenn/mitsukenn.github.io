@@ -42,6 +42,11 @@ const localBusiness = {
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
       gtag('config', 'G-740PJ5K47G');
+      // LINE友だち追加リンクのクリックを計測（リンク先が lin.ee なら発火）
+      document.addEventListener('click', function (e) {
+        var a = e.target.closest && e.target.closest('a[href*="lin.ee"]');
+        if (a) gtag('event', 'line_click', { link_url: a.href });
+      });
     </script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
