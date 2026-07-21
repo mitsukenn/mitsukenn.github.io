@@ -11,7 +11,7 @@ interface Props {
 }
 
 const { title, description = SITE.description, ogImage = '/assets/images/ogp.png' } = Astro.props;
-const pageTitle = title ? `${title}｜${SITE.name}` : `${SITE.name}｜長崎のAI相談・AIセミナー・Web制作`;
+const pageTitle = title ? `${title}｜${SITE.name}` : `${SITE.name}｜長崎のAIシステム開発・AI相談・Web制作`;
 const canonical = new URL(Astro.url.pathname, Astro.site);
 const ogImageUrl = new URL(ogImage, Astro.site);
 

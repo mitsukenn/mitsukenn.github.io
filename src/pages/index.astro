@@ -38,10 +38,9 @@ const works = [
         <h1>{SITE.catchcopy}</h1>
         <p>{SITE.subcopy}</p>
         <div class="hero__cta">
-          <a href={SITE.lineUrl} class="btn btn--line">LINEで無料相談してみる</a>
-          <a href="#service" class="btn btn--ghost">できることを見る</a>
+          <a href="/contact/" class="btn btn--accent">無料で相談する</a>
+          <a href="#cases" class="btn btn--ghost">活用事例を見る</a>
         </div>
-        <p class="hero__note">※ 相談は無料です。しつこい営業は一切しません。</p>
       </div>
       <div class="hero__img">
         <img
@@ -65,37 +64,37 @@ const works = [
         <div class="point-card">
           <img src="/assets/images/point-1.webp" alt="" width="600" height="600" loading="lazy" />
           <span class="point-card__label">その1</span>
-          <p class="point-card__q">AIって、何から始めればいいの？</p>
+          <p class="point-card__q">ChatGPTは使っている。でも、この先が分からない</p>
           <p class="point-card__a">
-            わからなくて当たり前です。ご相談に来る方のほとんどが、同じ状態からのスタート。あなたの仕事のどこでAIが使えるか、一緒に探すところからお手伝いします。
+            文章やメールの先へ進むには、業務への組み込み方の「設計」が必要です。その設計図づくりからお手伝いします。
           </p>
         </div>
         <div class="point-card">
           <img src="/assets/images/point-2.webp" alt="" width="600" height="600" loading="lazy" />
           <span class="point-card__label">その2</span>
-          <p class="point-card__q">うちみたいな小さな会社でも意味ある？</p>
+          <p class="point-card__q">自分しか使っていない。現場に広がらない</p>
           <p class="point-card__a">
-            実は、小さい会社ほど効果が大きいのがAIです。1人で何役もこなしている仕事こそ、AIの出番です。
+            個人の工夫のままでは広がりません。誰でも使える“道具”のかたちにして現場に渡し、定着まで見届けます。
           </p>
         </div>
         <div class="point-card">
           <img src="/assets/images/point-3.webp" alt="" width="600" height="600" loading="lazy" />
           <span class="point-card__label">その3</span>
-          <p class="point-card__q">パソコンも得意じゃないのに、大丈夫？</p>
+          <p class="point-card__q">どの業務に効くのか、全体像が見えない</p>
           <p class="point-card__a">
-            大丈夫です。スマホが使えれば十分。同じことを何度聞いてもらっても構いません。あなたのペースで、ひとつずつ進めます。
+            業務を棚卸しすれば、効く場所は必ず見つかります。無料相談で、あなたの会社のAI活用の地図を一緒に描きます。
           </p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 2.5 ビフォーアフター実例（「事務が半分になる」を具体で見せる） -->
-  <section class="section section--soft deco deco--dots-tr">
+  <!-- 2.5 活用イメージ（実数で見せる。Phase Bで実例ギャラリーに拡張予定） -->
+  <section class="section section--soft deco deco--dots-tr" id="cases">
     <div class="container">
       <div class="section-title">
-        <span class="section-title__sub">できること</span>
-        <h2>たとえば、こんな作業が半分になります</h2>
+        <span class="section-title__sub">活用イメージ</span>
+        <h2>たとえば、この作業がここまで縮みます</h2>
       </div>
       <div class="cases">
         <div class="case-card">
@@ -139,10 +138,10 @@ const works = [
         </div>
       </div>
       <p class="cases__hook">
-        「ChatGPTを触ってみたけど、続かなかった」——そんな方のご相談が、実は一番多いです。
+        ここまでは、まだ入口です。本命は、こうした時短をあなたの会社専用の「仕組み」として組み込むこと。
       </p>
       <p class="cases__note">
-        ※ 目安の一例です。「うちのこの作業はどう？」というご相談から一緒に探します。
+        ※ 数字は一例です。「うちのこの作業はどう？」というご相談から一緒に探します。
       </p>
     </div>
   </section>
@@ -165,7 +164,7 @@ const works = [
             はじめまして。「まちのAI屋さん」は、昔の「まちの電器屋さん」のように、困ったときに気軽に声をかけられるAIの相談相手でありたい、という思いで始めました。
           </p>
           <p class="handwriting">
-            AIの話は、むずかしい言葉を使わなくても伝えられます。長崎の会社の現場に合わせて、わかることばでご説明します。
+            自分の会社の業務ツールをAIで自作しながら、長崎の会社の「現場で使えるAI」づくりをお手伝いしています。AIの実践記録は、noteで50本以上発信してきました。
           </p>
           <p>
             <a href="/about/">くわしいプロフィールはこちら →</a>
@@ -185,8 +184,8 @@ const works = [
       <div class="promises">
         <div class="promise-card">
           <span class="promise-card__check" aria-hidden="true">✓</span>
-          <h3>むずかしい言葉は使いません</h3>
-          <p>専門用語ぬきで、わかることばだけでご説明します。同じことを何度聞いてもらっても構いません。</p>
+          <h3>実物でお見せします</h3>
+          <p>提案書だけで語りません。動くデモ・実例・実際の画面を見ながら、導入の判断をしてもらいます。</p>
         </div>
         <div class="promise-card">
           <span class="promise-card__check" aria-hidden="true">✓</span>
@@ -202,12 +201,24 @@ const works = [
     </div>
   </section>
 
-  <!-- 4. 3つのサービス -->
+  <!-- 4. サービス（主力=AIシステム開発） -->
   <section class="section deco deco--dots-tr" id="service">
     <div class="container">
       <div class="section-title">
         <span class="section-title__sub">できること</span>
-        <h2>3つのサービス</h2>
+        <h2>サービス</h2>
+      </div>
+      <!-- 主力サービス（TODO: 正式名称・料金体系・進め方の詳細を確定） -->
+      <div class="service-featured">
+        <img src="/assets/images/service-dev.webp" alt="店主のとなりでAIロボットが業務を手伝うイラスト" width="800" height="800" loading="lazy" />
+        <div class="service-featured__body">
+          <span class="service-featured__tag">主力サービス</span>
+          <h3>AIシステム開発・独自ツール開発</h3>
+          <p>
+            「この作業、AIで何とかならない？」を、あなたの会社専用のツール・仕組みに仕立てます。既製品では合わない現場にこそ。無料相談 → 試作 → 導入 → 定着まで伴走します。
+          </p>
+          <a href="/contact/" class="btn btn--accent btn--sm">無料相談で聞いてみる</a>
+        </div>
       </div>
       <div class="services">
         <div class="service-card">
@@ -287,6 +298,11 @@ const works = [
       </div>
       <div class="prices">
         <div class="price-card">
+          <h3>AIシステム開発</h3>
+          <p class="price-card__price">試作から<br />スモールスタート</p>
+          <p>内容により個別お見積り。小さく作って試してから広げます<!-- TODO: 料金目安の確定 --></p>
+        </div>
+        <div class="price-card">
           <h3>AIセミナー</h3>
           <p class="price-card__price">内容に合わせて<br />お見積り</p>
           <p>補助金が使える場合は、実質負担を大きく抑えられます。使えるかどうかの確認から無料でお手伝いします</p>
@@ -318,8 +334,8 @@ const works = [
       <div class="flow">
         <div class="flow-card">
           <span class="flow-card__num">1</span>
-          <h3>LINEでひとこと</h3>
-          <p>「AIのこと聞きたい」と送るだけで始まります。かしこまった文章はいりません。</p>
+          <h3>フォームかLINEで、ひとこと</h3>
+          <p>「この作業、AIでできる？」だけで十分です。かしこまった文章はいりません。</p>
         </div>
         <div class="flow-card">
           <span class="flow-card__num">2</span>
@@ -367,11 +383,11 @@ const works = [
     <div class="container article">
       <div class="section-title">
         <span class="section-title__sub">よくある質問</span>
-        <h2>はじめてでも、大丈夫です</h2>
+        <h2>気になることに、先にお答えします</h2>
       </div>
       <div class="faq-item">
-        <h3>AIのことが全然わからなくても相談していいですか？</h3>
-        <p>もちろんです。「何を聞けばいいかわからない」という状態からのご相談が一番多いです。専門用語を使わずにご説明します。</p>
+        <h3>何を頼めばいいか、まだ具体的に決まっていません</h3>
+        <p>それで大丈夫です。「もっと何かできる気がする」の段階からのご相談が一番多いです。業務のお話を聞きながら、AIが効く場所をこちらから提案します。</p>
       </div>
       <div class="faq-item">
         <h3>相談にお金はかかりますか？</h3>

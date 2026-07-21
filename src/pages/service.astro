@@ -10,11 +10,38 @@ import CtaSection from '../components/CtaSection.astro';
   <div class="page-header">
     <div class="container">
       <h1>サービス</h1>
-      <p>3つのサービスで、AI活用の「はじめる」から「つづける」までを支えます</p>
+      <p>AIシステム開発を中心に、AI活用の「はじめる」から「つづける」までを支えます</p>
     </div>
   </div>
 
-  <section class="section" id="seminar">
+  <section class="section" id="dev">
+    <div class="container article">
+      <div class="section-title">
+        <span class="section-title__sub">主力サービス</span>
+        <h2>AIシステム開発・独自ツール開発</h2>
+      </div>
+      <div class="article-body">
+        <p>
+          「この作業、AIで何とかならない？」——その一言から、あなたの会社専用のAIツール・業務の仕組みをつくるサービスです。既製のツールでは現場に合わない、というときにこそ力を発揮します。
+        </p>
+        <h3>たとえば、こんなご相談</h3>
+        <ul>
+          <li>毎日の定型業務（見積・報告書・集計など）を自動化したい</li>
+          <li>問い合わせ対応をAIに一次対応させたい</li>
+          <li>社内のノウハウをAIに覚えさせて、誰でも引き出せるようにしたい</li>
+        </ul>
+        <h3>進め方</h3>
+        <ul>
+          <li>① 無料相談 — 業務のお話を聞き、AIが効く場所を一緒に探します</li>
+          <li>② 試作 — まず小さく動くものを作り、実際の業務で試してもらいます</li>
+          <li>③ 導入・定着 — 現場で使われるまで調整し、その後の改善も伴走します</li>
+        </ul>
+        <p>料金は内容により個別お見積りです。試作からのスモールスタートをおすすめしています。<!-- TODO: 正式名称・料金体系・実例の追記 --></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--soft" id="seminar">
     <div class="container article">
       <div class="section-title">
         <span class="section-title__sub">SERVICE 01</span>
@@ -41,7 +68,7 @@ import CtaSection from '../components/CtaSection.astro';
     </div>
   </section>
 
-  <section class="section section--soft" id="advisor">
+  <section class="section" id="advisor">
     <div class="container article">
       <div class="section-title">
         <span class="section-title__sub">SERVICE 02</span>
@@ -64,7 +91,7 @@ import CtaSection from '../components/CtaSection.astro';
     </div>
   </section>
 
-  <section class="section" id="web">
+  <section class="section section--soft" id="web">
     <div class="container article">
       <div class="section-title">
         <span class="section-title__sub">SERVICE 03</span>
