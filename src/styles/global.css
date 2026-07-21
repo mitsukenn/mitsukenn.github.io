@@ -374,15 +374,16 @@ a {
 
 /* --- バナー主役のFV --- */
 .hero--banner {
-  padding: 40px 0 56px;
+  padding: 28px 0 48px;
 }
 
 .hero--banner .container {
   text-align: center;
 }
 
+/* CTAボタンがファーストビューに収まる高さに抑える */
 .hero-banner {
-  max-width: 1000px;
+  max-width: 800px;
   margin: 0 auto;
   border-radius: var(--radius);
   overflow: hidden;
@@ -397,7 +398,7 @@ a {
 .hero--banner .hero__sub {
   font-size: 16px;
   color: var(--text-weak);
-  margin: 28px auto 24px;
+  margin: 22px auto 20px;
   max-width: 640px;
 }
 
