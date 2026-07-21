@@ -474,8 +474,9 @@ a {
 }
 
 .point-card img {
-  width: 120px;
-  height: 120px;
+  width: 100%;
+  max-width: 220px;
+  height: auto;
   margin: 0 auto 16px;
   object-fit: contain;
 }
