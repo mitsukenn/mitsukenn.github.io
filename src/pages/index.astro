@@ -35,7 +35,8 @@ const works = [
   <section class="hero hero--banner deco deco--dots-tr">
     <div class="container">
       <h1 class="visually-hidden">{SITE.catchcopy}</h1>
-      <div class="hero-banner">
+      <!-- バナー内の「無料相談 受付中」は画像なので、バナー全体を相談ページへのリンクにする -->
+      <a href="/contact/" class="hero-banner">
         <img
           src="/assets/images/hero-banner.webp"
           alt={`${SITE.catchcopy} 無料相談 受付中｜まちのAI屋さん`}
@@ -43,7 +44,7 @@ const works = [
           height="675"
           fetchpriority="high"
         />
-      </div>
+      </a>
       <p class="hero__sub">{SITE.subcopy}</p>
       <div class="hero__cta">
         <a href="/contact/" class="btn btn--accent">無料で相談する</a>

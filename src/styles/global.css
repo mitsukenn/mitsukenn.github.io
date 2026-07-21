@@ -383,11 +383,18 @@ a {
 
 /* CTAボタンがファーストビューに収まる高さに抑える */
 .hero-banner {
+  display: block;
   max-width: 800px;
   margin: 0 auto;
   border-radius: var(--radius);
   overflow: hidden;
   box-shadow: var(--shadow);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.hero-banner:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(60, 50, 40, 0.14);
 }
 
 .hero-banner img {
