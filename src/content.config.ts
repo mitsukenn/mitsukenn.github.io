@@ -9,6 +9,7 @@ const blog = defineCollection({
     pubDate: z.coerce.date(),
     category: z.enum(['tutorial', 'subsidy', 'case', 'news']),
     ogImage: z.string().optional(),
+    heroImage: z.string().optional(),
     draft: z.boolean().default(false),
   }),
 });

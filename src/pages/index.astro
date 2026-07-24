@@ -1,12 +1,18 @@
 ---
 import Base from '../layouts/Base.astro';
 import CtaSection from '../components/CtaSection.astro';
-import { SITE, CATEGORIES } from '../config';
+import { SITE, CATEGORIES, RANKING } from '../config';
 import { getCollection } from 'astro:content';
 
-const posts = (await getCollection('blog', ({ data }) => !data.draft))
+const allPosts = await getCollection('blog', ({ data }) => !data.draft);
+const posts = [...allPosts]
   .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
   .slice(0, 3);
+
+// 人気記事ベスト5（config.ts の RANKING 順）
+const rankedPosts = RANKING.map((slug) => allPosts.find((p) => p.id === slug)).filter(
+  (p) => p !== undefined
+);
 
 const fmt = (d: Date) =>
   `${d.getFullYear()}.${String(d.getMonth() + 1).padStart(2, '0')}.${String(d.getDate()).padStart(2, '0')}`;
@@ -363,6 +369,9 @@ const works = [
           <div class="blog-list">
             {posts.map((post) => (
               <a href={`/blog/${post.id}/`} class="blog-card">
+                {post.data.heroImage && (
+                  <img class="blog-card__thumb" src={post.data.heroImage} alt="" loading="lazy" />
+                )}
                 <span class="blog-card__cat">{CATEGORIES[post.data.category]}</span>
                 <h3>{post.data.title}</h3>
                 <p>{post.data.description}</p>
@@ -370,6 +379,34 @@ const works = [
               </a>
             ))}
           </div>
+
+          {rankedPosts.length > 0 && (
+            <div class="ranking">
+              <h3 class="ranking__title">よく読まれている記事 ベスト5</h3>
+              <ol class="ranking__list">
+                {rankedPosts.map((post, i) => (
+                  <li>
+                    <a href={`/blog/${post.id}/`} class="ranking__item">
+                      <span class={`ranking__num ranking__num--${i + 1}`}>{i + 1}</span>
+                      {post.data.heroImage && (
+                        <img
+                          class="ranking__thumb"
+                          src={post.data.heroImage}
+                          alt=""
+                          loading="lazy"
+                        />
+                      )}
+                      <span class="ranking__text">
+                        <span class="ranking__cat">{CATEGORIES[post.data.category]}</span>
+                        {post.data.title}
+                      </span>
+                    </a>
+                  </li>
+                ))}
+              </ol>
+            </div>
+          )}
+
           <p class="text-center mt-32">
             <a href="/blog/" class="btn btn--ghost btn--sm">コラム一覧を見る</a>
           </p>

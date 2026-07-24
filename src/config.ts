@@ -20,6 +20,18 @@ export const SITE = {
   owner: '',
 } as const;
 
+/**
+ * トップページ「人気記事ベスト5」の表示順（blogのスラッグを指定）。
+ * 当面は編集部選定。GA4のアクセス数が貯まったら月1回、実数で入れ替える。
+ */
+export const RANKING = [
+  'jimu-hanbun-checklist15',
+  'chatgpt-shigoto-herananai',
+  'ai-app-nani-ga-ikura',
+  'nagasaki-chusho-ai-riyuu',
+  'chatgpt-hajimekata',
+] as const;
+
 export const CATEGORIES = {
   tutorial: 'AI活用チュートリアル',
   subsidy: '補助金・支援制度',

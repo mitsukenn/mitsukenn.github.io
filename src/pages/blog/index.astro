@@ -29,6 +29,9 @@ const fmt = (d: Date) =>
         {
           posts.map((post) => (
             <a href={`/blog/${post.id}/`} class="blog-card">
+              {post.data.heroImage && (
+                <img class="blog-card__thumb" src={post.data.heroImage} alt="" loading="lazy" />
+              )}
               <span class="blog-card__cat">{CATEGORIES[post.data.category]}</span>
               <h3>{post.data.title}</h3>
               <p>{post.data.description}</p>
