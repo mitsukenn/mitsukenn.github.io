@@ -31,10 +31,10 @@
   --radius-sm: 10px;
   --shadow: 0 4px 20px rgba(60, 50, 40, 0.08);
 
-  --font-body: 'Zen Maru Gothic', 'M PLUS Rounded 1c', 'Hiragino Maru Gothic ProN',
-    'BIZ UDGothic', sans-serif;
+  --font-body: 'Zen Kaku Gothic New', 'Hiragino Kaku Gothic ProN', 'BIZ UDPGothic',
+    'Meiryo', sans-serif;
   /* 手書き風（代表あいさつ等のぬくもり演出用） */
-  --font-hand: 'Klee One', 'Zen Maru Gothic', sans-serif;
+  --font-hand: 'Klee One', 'Zen Kaku Gothic New', sans-serif;
 }
 
 * {
