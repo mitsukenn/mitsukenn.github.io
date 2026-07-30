@@ -3,7 +3,7 @@ title: '現場終わりの日報が消えるかもしれない話 ― 建設業�
 description: '建設現場で働いたことのない私が、補助金の活用事例を調べていて驚いた話です。現場管理アプリで日報作成の時間が9割減ったという報告をもとに、現場仕事の毎日がどう変わりうるのか書きました。'
 pubDate: 2026-07-30
 category: subsidy
-heroImage: '/assets/images/blog/kensetsu-genba-smart.webp'
+heroImage: '/assets/images/blog/thumb-kensetsu-hojokin-mirai.webp'
 draft: true
 ---
 

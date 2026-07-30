@@ -3,7 +3,7 @@ title: 'ホームページは「作って終わり」がいちばん損 — 保�
 description: '10年前に作ったきりのホームページ、放置していませんか。古い営業時間やスマホ表示の崩れが招く実害と、私が保守を月額定額制にしている理由を正直にお話しします。保守で実際に何をするのか、具体例も紹介します。'
 pubDate: 2026-07-18
 category: case
-heroImage: '/assets/images/blog/hp-hoshu-teire.webp'
+heroImage: '/assets/images/blog/thumb-hp-hoshu-tsukutte-owari.webp'
 draft: false
 ---
 

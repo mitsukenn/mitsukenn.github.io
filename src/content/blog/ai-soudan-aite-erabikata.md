@@ -3,7 +3,7 @@ title: '「AIはよくわからないから怖い」あなたへ — 騙され�
 description: 'AIの相談相手を選ぶとき、中小企業の店主が確認したい5箇条をまとめました。高額商材や強引な補助金営業を見分ける危険サインつき。長崎でAI相談を受けている私が、業者選びの目安を正直にお伝えします。'
 pubDate: 2026-07-17
 category: news
-heroImage: '/assets/images/blog/soudan-aite-mikiwame.webp'
+heroImage: '/assets/images/blog/thumb-ai-soudan-aite-erabikata.webp'
 draft: false
 ---
 

@@ -3,7 +3,7 @@ title: '小さな会社の「自社専用AIアプリ」は何がどこまで作�
 description: '既製ソフトは高すぎるし、うちの仕事に合わない。そんな会社のための「自社専用AIアプリ」で何が作れるのか、構想例と費用の考え方、失敗しない進め方をわかりやすく解説します。'
 pubDate: 2026-07-24
 category: tutorial
-heroImage: '/assets/images/blog/jisha-ai-app.webp'
+heroImage: '/assets/images/blog/thumb-ai-app-nani-ga-ikura.webp'
 draft: false
 ---
 

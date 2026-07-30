@@ -3,7 +3,7 @@ title: 'デジタル化・AI導入補助金2026まるわかり ― 旧IT導入�
 description: 'IT導入補助金が「デジタル化・AI導入補助金」に生まれ変わりました。5つの申請枠と補助額、AIツールが正面から対象になった変更点、意外と知られていない「カタログ方式」の仕組みまで、小さな会社の目線でまるごと解説します。'
 pubDate: 2026-07-29
 category: subsidy
-heroImage: '/assets/images/blog/tenshu-hatena.webp'
+heroImage: '/assets/images/blog/thumb-digital-ai-hojokin-2026.webp'
 draft: false
 ---
 

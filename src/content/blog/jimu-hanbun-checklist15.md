@@ -3,7 +3,7 @@ title: '「AIで半分にできる事務仕事」チェックリスト15 — 請
 description: '事務仕事の効率化にAIを使いたい中小企業の方へ。請求書・議事録・お知らせ文など、AIで時短できる事務仕事15個をチェックリスト形式で紹介。専門用語なしで、今日から1つ選んで試せる実践ガイドです。'
 pubDate: 2026-07-14
 category: tutorial
-heroImage: '/assets/images/blog/jimu-ai-jidouka.webp'
+heroImage: '/assets/images/blog/thumb-jimu-hanbun-checklist15.webp'
 draft: false
 ---
 

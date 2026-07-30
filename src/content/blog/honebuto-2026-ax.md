@@ -3,7 +3,7 @@ title: '国がAXを国策にした ― 「骨太の方針2026」を中小企業�
 description: '2026年7月に閣議決定された「骨太の方針2026」で、AX（AIトランスフォーメーション）が国の経済政策の看板になりました。骨太の方針とはそもそも何か、地域AX・補助金の名称変更など、小さな会社に関係あるポイントを5つに絞って解説します。'
 pubDate: 2026-07-29
 category: news
-heroImage: '/assets/images/blog/kuni-no-ax-hoshin.webp'
+heroImage: '/assets/images/blog/thumb-honebuto-2026-ax.webp'
 draft: false
 ---
 

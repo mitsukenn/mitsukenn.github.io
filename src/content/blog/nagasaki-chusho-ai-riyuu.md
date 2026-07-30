@@ -3,7 +3,7 @@ title: '長崎の中小企業こそAIを使うべき3つの理由 — 人手不�
 description: '人手不足が続く長崎で、家族経営や小さな会社こそAIを使うべき理由を3つ紹介。人を増やせないなら仕事を軽くする、小さい会社ほど効果が大きい、今なら十分早い——長崎でAI相談を受ける私が解説します。無料のLINE相談も。'
 pubDate: 2026-07-20
 category: news
-heroImage: '/assets/images/blog/nagasaki-fukei-illust.webp'
+heroImage: '/assets/images/blog/thumb-nagasaki-chusho-ai-riyuu.webp'
 draft: false
 ---
 

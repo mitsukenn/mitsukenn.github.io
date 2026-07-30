@@ -3,7 +3,7 @@ title: '長崎県の補助金でAI研修を実質負担少なく受ける方法�
 description: '長崎県のデジタル力向上補助金を使えば、AIセミナー・研修の費用負担を抑えられます。対象・流れ・注意点をわかりやすくまとめました。'
 pubDate: 2026-07-12
 category: subsidy
-heroImage: '/assets/images/blog/koushi-seminar.webp'
+heroImage: '/assets/images/blog/thumb-digital-hojokin-guide.webp'
 ---
 
 <!-- TODO: 公開前に最新の公募要領（対象要件・補助率・上限額・公募期間）を確認して数字を確定させる -->

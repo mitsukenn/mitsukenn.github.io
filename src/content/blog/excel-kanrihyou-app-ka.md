@@ -3,7 +3,7 @@ title: 'Excelと紙の管理表を「アプリ」にする第一歩 ― 選ぶ�
 description: '顧客リスト・在庫・シフト表。Excelと紙が混ざった管理に限界を感じたら。全部を一気にシステム化せず「一番二度手間な1枚」だけアプリにする、失敗しない進め方を解説します。'
 pubDate: 2026-07-24
 category: tutorial
-heroImage: '/assets/images/blog/excel-kara-app-he.webp'
+heroImage: '/assets/images/blog/thumb-excel-kanrihyou-app-ka.webp'
 draft: false
 ---
 

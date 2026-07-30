@@ -3,7 +3,7 @@ title: 'スマホ音痴だった55歳の父が、AIの話で1時間半盛り上�
 description: 'パソコンが苦手でもAIは使えるのか。スマホやZoomが苦手だった55歳の父が、ChatGPTをきっかけに変わっていった実話です。「60代の自分には無理」と感じている方やそのご家族の不安に、私の家族の話でお答えします。'
 pubDate: 2026-07-19
 category: case
-heroImage: '/assets/images/blog/oyako-ai-hanashikomu.webp'
+heroImage: '/assets/images/blog/thumb-55sai-chichi-to-ai.webp'
 draft: false
 ---
 

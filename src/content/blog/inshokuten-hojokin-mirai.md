@@ -3,7 +3,7 @@ title: '夜10時のレジ締めが消えるかもしれない話 ― 飲食店�
 description: '飲食店で働いたことのない私が、補助金の公式事例集を読んでいて驚いた話です。セルフレジで会計ミス9割減・客単価2割増になった焼肉店の実例をもとに、お店の毎日がどう変わりうるのか書きました。'
 pubDate: 2026-07-29
 category: subsidy
-heroImage: '/assets/images/blog/shokudo-mirai.webp'
+heroImage: '/assets/images/blog/thumb-inshokuten-hojokin-mirai.webp'
 draft: false
 ---
 

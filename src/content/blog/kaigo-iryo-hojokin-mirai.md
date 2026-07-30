@@ -3,7 +3,7 @@ title: '夜間の見回り負担が半分になるかもしれない話 ― 介�
 description: '記録に追われて利用者さんと向き合う時間が削られる。介護・医療の現場のそんな話を聞くたびに、道具で返せる時間があるはずだと思っていました。夜間巡回50%効率化などの報告をもとに書いています。'
 pubDate: 2026-07-30
 category: subsidy
-heroImage: '/assets/images/blog/kaigo-kiroku-tablet.webp'
+heroImage: '/assets/images/blog/thumb-kaigo-iryo-hojokin-mirai.webp'
 draft: true
 ---
 

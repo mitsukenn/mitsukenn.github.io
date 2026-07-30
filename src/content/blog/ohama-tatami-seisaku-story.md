@@ -3,7 +3,7 @@ title: '大濱畳店さまのホームページができるまで — 長崎の�
 description: '長崎市の畳屋・大濱畳店さまのホームページ制作を、最初の相談から公開後の保守まで5つのステップでレポート。パソコンが苦手でも大丈夫な進め方を、長崎でホームページ制作をしている私がご紹介します。写真や文章の準備も一緒に進めます。'
 pubDate: 2026-07-21
 category: case
-heroImage: '/assets/images/blog/tatami-ten-seisaku.webp'
+heroImage: '/assets/images/blog/thumb-ohama-tatami-seisaku-story.webp'
 draft: true
 ---
 

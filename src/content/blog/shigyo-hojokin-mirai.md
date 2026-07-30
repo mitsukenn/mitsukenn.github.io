@@ -3,7 +3,7 @@ title: '顧問先が1年で30社増えた事務所の話 ― 士業とデジタ�
 description: '記帳や入力に追われて、本来の相談業務に時間が割けない。クラウド会計の導入で顧問先が1年で30社増えたという会計事務所の報告をもとに、士業の仕事がどう変わりうるのか書きました。'
 pubDate: 2026-07-30
 category: subsidy
-heroImage: '/assets/images/blog/shigyo-jimusho-pc.webp'
+heroImage: '/assets/images/blog/thumb-shigyo-hojokin-mirai.webp'
 draft: true
 ---
 
