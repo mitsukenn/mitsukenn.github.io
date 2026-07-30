@@ -63,4 +63,4 @@ AIの出力をそのまま配らない。これは鉄則です。固有名詞の
 - [LINEで相談する](https://lin.ee/XYH9dqc)
 - [お問い合わせページ](/contact/)
 - [サービス内容（AIシステム開発）を見る](/service/)
-- あわせて読みたい: [ChatGPTは使えるのに、仕事が減らない ― 会社が変わらない3つの理由](/blog/chatgpt-shigoto-herananai/)／[長崎の中小企業こそAIを使うべき3つの理由](/blog/nagasaki-chusho-ai-riyuu/)
+- 「[ChatGPTは使えるのに、仕事が減らない ― 会社が変わらない3つの理由](/blog/chatgpt-shigoto-herananai/)」「[長崎の中小企業こそAIを使うべき3つの理由](/blog/nagasaki-chusho-ai-riyuu/)」もあわせてどうぞ

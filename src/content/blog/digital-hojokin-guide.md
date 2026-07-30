@@ -34,4 +34,4 @@ heroImage: '/assets/images/blog/koushi-seminar.webp'
 
 補助金は「知っているか、知らないか」だけで負担が大きく変わります。「うちは対象になる？」の確認だけでもお気軽に。[お問い合わせページ](/contact/)からLINEで無料相談できます。
 
-あわせて読みたい: [長崎の中小企業こそAIを使うべき3つの理由](/blog/nagasaki-chusho-ai-riyuu/)
+「[長崎の中小企業こそAIを使うべき3つの理由](/blog/nagasaki-chusho-ai-riyuu/)」もあわせてどうぞ
