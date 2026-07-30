@@ -77,4 +77,4 @@ POSレジや在庫管理が入ると、その勘の答え合わせができる�
 - [LINEで相談する](https://lin.ee/XYH9dqc)
 - [お問い合わせページ](/contact/)
 - [サービス内容（AIシステム開発）を見る](/service/)
-- あわせて読みたい: [長崎の中小企業こそAIを使うべき3つの理由](/blog/nagasaki-chusho-ai-riyuu/)
+- 「[長崎の中小企業こそAIを使うべき3つの理由](/blog/nagasaki-chusho-ai-riyuu/)」もあわせてどうぞ

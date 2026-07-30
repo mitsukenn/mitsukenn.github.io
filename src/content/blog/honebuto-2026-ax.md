@@ -56,9 +56,9 @@ IT導入補助金が、今年度から**デジタル化・AI導入補助金**と
 - AI分野への集中投資で、小さな会社が使える道具は今後さらに安く・簡単になる
 - ただし骨太は設計図。実際に制度を使うときは最新の公募要領を確認する
 
-参考: [経済財政運営と改革の基本方針2026（内閣府）](https://www5.cao.go.jp/keizai-shimon/kaigi/cabinet/honebuto/2026/2026_basicpolicies_ja.pdf) / [デジタル化・AI導入補助金2026 公募要領（中小企業庁）](https://www.chusho.meti.go.jp/koukai/hojyokin/kobo/2026/260310001.html)
+元の資料はこちらです。[経済財政運営と改革の基本方針2026（内閣府）](https://www5.cao.go.jp/keizai-shimon/kaigi/cabinet/honebuto/2026/2026_basicpolicies_ja.pdf) / [デジタル化・AI導入補助金2026 公募要領（中小企業庁）](https://www.chusho.meti.go.jp/koukai/hojyokin/kobo/2026/260310001.html)
 
-次回: [小さな会社のAX、最初の一歩 ― お金をかけずに始める3段階](/blog/chiisana-kaisha-ax-hajimekata/)
+次回は[小さな会社のAX、最初の一歩 ― お金をかけずに始める3段階](/blog/chiisana-kaisha-ax-hajimekata/)です。
 
 ---
 
@@ -69,4 +69,4 @@ IT導入補助金が、今年度から**デジタル化・AI導入補助金**と
 - [LINEで相談する](https://lin.ee/XYH9dqc)
 - [お問い合わせページ](/contact/)
 - [サービス内容（AIシステム開発）を見る](/service/)
-- あわせて読みたい: [長崎の中小企業こそAIを使うべき3つの理由](/blog/nagasaki-chusho-ai-riyuu/)
+- 「[長崎の中小企業こそAIを使うべき3つの理由](/blog/nagasaki-chusho-ai-riyuu/)」もあわせてどうぞ
