@@ -3,12 +3,14 @@ title: 'ChatGPTの始め方 — 長崎の中小企業がまず最初にやる3�
 description: 'AIに興味はあるけど何から始めればいいかわからない方へ。ChatGPTのアカウント作成から、業務での最初の使い方までを専門用語なしで解説します。'
 pubDate: 2026-07-13
 category: tutorial
-heroImage: '/assets/images/blog/jouro-me.webp'
+heroImage: '/assets/images/blog/chatgpt-hajimeru-3step.webp'
 ---
 
 「AIを使ってみたいけど、何から始めればいいかわからない」——ご相談で一番多い質問です。
 
 この記事では、ChatGPTを業務で使い始めるまでの3ステップを、専門用語を使わずにご紹介します。所要時間は10分です。
+
+![ChatGPTの始め方3ステップ図。アカウントを作る3分、自分の仕事を話す、文章仕事をひとつ任せる。無料で今日から始められます](/assets/images/blog/chatgpt-3step.webp)
 
 ## ステップ1 ― アカウントを作る
 

@@ -3,7 +3,7 @@ title: '「AIで半分にできる事務仕事」チェックリスト15 — 請
 description: '事務仕事の効率化にAIを使いたい中小企業の方へ。請求書・議事録・お知らせ文など、AIで時短できる事務仕事15個をチェックリスト形式で紹介。専門用語なしで、今日から1つ選んで試せる実践ガイドです。'
 pubDate: 2026-07-14
 category: tutorial
-heroImage: '/assets/images/blog/calendar-yunomi.webp'
+heroImage: '/assets/images/blog/jimu-ai-jidouka.webp'
 draft: false
 ---
 
@@ -16,6 +16,8 @@ draft: false
 この記事では、AIで時短できる事務仕事を15個、チェックリストにまとめました。
 
 先に結論です。**AIが得意なのは「文章を書く」「情報を整理する」「計算やチェックの下準備」の3つ。** 逆に、判断とお金の最終確認は、今までどおり人の仕事です。
+
+![AIが得意な3分野の図。文章を書く、情報を整理する、計算の下準備。下書きはAI、仕上げは自分](/assets/images/blog/ai-tokui-3bunya.webp)
 
 私は「めんどうな事務仕事、AIで半分にしませんか。」を看板に掲げています。「半分」は大げさではありません。下書きをAIに任せて、人は直すだけ。そう割り切ると、本当にそれくらい変わります。
 

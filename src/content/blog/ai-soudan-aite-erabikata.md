@@ -3,7 +3,7 @@ title: '「AIはよくわからないから怖い」あなたへ — 騙され�
 description: 'AIの相談相手を選ぶとき、中小企業の店主が確認したい5箇条をまとめました。高額商材や強引な補助金営業を見分ける危険サインつき。長崎でAI相談を受けている私が、業者選びの目安を正直にお伝えします。'
 pubDate: 2026-07-17
 category: news
-heroImage: '/assets/images/blog/tenohira-anshin.webp'
+heroImage: '/assets/images/blog/soudan-aite-mikiwame.webp'
 draft: false
 ---
 
@@ -28,6 +28,8 @@ AI（文章や画像を作れるAI）そのものは、道具にすぎません�
 
 私は長崎でAIの相談を受けている立場ですが、あえて言います。
 この5箇条は、私以外の相談相手を選ぶときにも、そのまま使ってください。
+
+![5箇条のチェックリスト。売り込む前に話を聞くか、できないことを言うか、料金が明朗か、導入後も付き合うか、地元で顔が見えるか。虫眼鏡で確かめる店主のイラスト](/assets/images/blog/soudan-aite-5kajo.webp)
 
 ## 5箇条その1 ― 最初に売り込まず、話を聞いてくれるか？
 

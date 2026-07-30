@@ -3,7 +3,7 @@ title: 'LINE公式アカウントの作り方 — 小さなお店の予約・問
 description: 'LINE公式アカウントの作り方を店舗向けにやさしく解説。無料で始められる登録の手順、あいさつメッセージの設定、QRコードでお客様に案内するまでの流れを、長崎でAI相談を受けている私がまとめました。'
 pubDate: 2026-07-16
 category: tutorial
-heroImage: '/assets/images/blog/fukidashi-heart.webp'
+heroImage: '/assets/images/blog/line-mise-yoyaku.webp'
 draft: false
 ---
 
@@ -26,6 +26,8 @@ draft: false
 2. お店の情報を入力する
 3. あいさつメッセージを設定する
 4. QRコードをお客様に案内する
+
+![LINE公式アカウント開設の4ステップ図。登録、お店の情報、あいさつ設定、QRコードで案内。無料でスマホひとつで作れます](/assets/images/blog/line-4step.webp)
 
 ひとつずつ、順番に見ていきましょう。
 

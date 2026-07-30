@@ -3,7 +3,7 @@ title: 'ホームページは「作って終わり」がいちばん損 — 保�
 description: '10年前に作ったきりのホームページ、放置していませんか。古い営業時間やスマホ表示の崩れが招く実害と、私が保守を月額定額制にしている理由を正直にお話しします。保守で実際に何をするのか、具体例も紹介します。'
 pubDate: 2026-07-18
 category: case
-heroImage: '/assets/images/blog/browser-migaku.webp'
+heroImage: '/assets/images/blog/hp-hoshu-teire.webp'
 draft: false
 ---
 
@@ -16,6 +16,8 @@ draft: false
 この記事では、放置されたホームページの損と、その直し方がわかります。
 
 先に結論です。ホームページは「作ってから」が本番です。だから私は、保守を月額定額制にしています。作りっぱなしにしない、という約束の形です。
+
+![比較図。作って終わりはクモの巣が張ったパソコンと困った店主、育てるは水をやられて画面から花が咲くパソコンと笑顔の店主](/assets/images/blog/tsukutte-owari-vs-sodateru.webp)
 
 ## 「作ったきりのホームページ」、こんな状態になっていませんか？
 
