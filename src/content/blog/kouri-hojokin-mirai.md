@@ -1,6 +1,6 @@
 ---
 title: '棚卸が半分で終わるかもしれない話 ― 小売店とデジタル化・AI導入補助金'
-description: '閉店後の棚卸、発注の読み、常連さんへの声かけ。補助金の公式事例集に載っていた「棚卸時間50%削減」の実例をもとに、小売店の毎日がどう変わりうるのか書きました。'
+description: '棚卸時間50%削減という公式実例をもとに、小売店の毎日が補助金でどう変わりうるのか書きました。'
 pubDate: 2026-07-30
 category: subsidy
 heroImage: '/assets/images/blog/thumb-kouri-hojokin-mirai.webp'

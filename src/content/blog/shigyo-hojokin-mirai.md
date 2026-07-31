@@ -1,6 +1,6 @@
 ---
 title: '顧問先が1年で30社増えた事務所の話 ― 士業とデジタル化・AI導入補助金'
-description: '記帳や入力に追われて、本来の相談業務に時間が割けない。クラウド会計の導入で顧問先が1年で30社増えたという会計事務所の報告をもとに、士業の仕事がどう変わりうるのか書きました。'
+description: 'クラウド会計で顧問先が1年で30社増えた報告をもとに、士業の仕事が補助金でどう変わりうるのか書きました。'
 pubDate: 2026-07-30
 category: subsidy
 heroImage: '/assets/images/blog/thumb-shigyo-hojokin-mirai.webp'

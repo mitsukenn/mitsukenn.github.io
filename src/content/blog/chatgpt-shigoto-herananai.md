@@ -1,6 +1,6 @@
 ---
 title: 'ChatGPTは使えるのに、仕事が減らない ― 会社が変わらない3つの理由'
-description: 'ChatGPTを毎日使っているのに、会社全体の残業は減らない。その原因は「個人の時短」で止まっているからです。AIを業務に組み込むという次の一歩を、専門用語なしで解説します。'
+description: 'ChatGPTを毎日使っているのに残業が減らないのは、個人の時短で止まっているから。次の一歩を解説します。'
 pubDate: 2026-07-24
 category: news
 heroImage: '/assets/images/blog/thumb-chatgpt-shigoto-herananai.webp'

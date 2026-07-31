@@ -1,6 +1,6 @@
 ---
 title: '小さな会社のAX、最初の一歩 ― お金をかけずに始める3段階'
-description: 'AXが国策になったのは分かった。で、うちは何から始めればいいのか。社長が毎日使う→業務にひとつ組み込む→事業を見直す、の3段階に分けて、0円でできる今日の一歩から補助金の使いどころまで、順番に解説します。'
+description: 'AXの最初の一歩は0円です。社長が毎日使う、業務にひとつ組み込む、事業を見直す、の3段階で進め方を解説します。'
 pubDate: 2026-07-29
 category: tutorial
 heroImage: '/assets/images/blog/thumb-chiisana-kaisha-ax-hajimekata.webp'

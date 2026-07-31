@@ -1,6 +1,6 @@
 ---
 title: '「あの注文、どこまで進んでる？」が消えるかもしれない話 ― 町工場とデジタル化・AI導入補助金'
-description: '進捗確認の電話、頭の中だけにある工程表、急な注文への返事。生産管理システムで納期遅延80%削減という報告をもとに、町工場の毎日がどう変わりうるのか書きました。'
+description: '生産管理システムで納期遅延80%削減という報告をもとに、町工場の毎日が補助金でどう変わりうるのか書きました。'
 pubDate: 2026-07-30
 category: subsidy
 heroImage: '/assets/images/blog/thumb-seizo-hojokin-mirai.webp'

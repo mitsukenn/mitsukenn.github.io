@@ -1,6 +1,6 @@
 ---
 title: 'ChatGPTの始め方 — 長崎の中小企業がまず最初にやる3つのこと'
-description: 'AIに興味はあるけど何から始めればいいかわからない方へ。ChatGPTのアカウント作成から、業務での最初の使い方までを専門用語なしで解説します。'
+description: 'ChatGPTのアカウント作成から業務での最初の使い方まで、専門用語なしの3ステップで解説。所要時間は10分です。'
 pubDate: 2026-07-13
 category: tutorial
 heroImage: '/assets/images/blog/thumb-chatgpt-hajimekata.webp'

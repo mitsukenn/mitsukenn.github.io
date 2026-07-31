@@ -1,6 +1,6 @@
 ---
 title: 'ホームページ制作の費用相場 — 長崎で頼むとき損しない5つのチェックポイント'
-description: 'ホームページ制作を長崎で頼むときの費用相場と、損しないための5つのチェックポイントを解説。保守費・更新・スマホ表示・ドメインの所有権・追加費用など、契約前に確認すべきことを制作者の立場から正直にお伝えします。'
+description: 'ホームページ制作の費用相場と、契約前に確認したい5つのチェックポイントを、制作者の立場から正直にお伝えします。'
 pubDate: 2026-07-15
 category: tutorial
 heroImage: '/assets/images/blog/thumb-hp-seisaku-hiyou-nagasaki.webp'

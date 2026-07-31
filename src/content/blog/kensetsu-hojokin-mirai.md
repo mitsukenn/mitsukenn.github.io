@@ -1,6 +1,6 @@
 ---
 title: '現場終わりの日報が消えるかもしれない話 ― 建設業とデジタル化・AI導入補助金'
-description: '建設現場で働いたことのない私が、補助金の活用事例を調べていて驚いた話です。現場管理アプリで日報作成の時間が9割減ったという報告をもとに、現場仕事の毎日がどう変わりうるのか書きました。'
+description: '現場管理アプリで日報作成9割減という報告をもとに、建設業の毎日が補助金でどう変わりうるのか書きました。'
 pubDate: 2026-07-30
 category: subsidy
 heroImage: '/assets/images/blog/thumb-kensetsu-hojokin-mirai.webp'

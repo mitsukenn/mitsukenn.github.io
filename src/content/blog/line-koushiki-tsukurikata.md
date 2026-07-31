@@ -1,6 +1,6 @@
 ---
 title: 'LINE公式アカウントの作り方 — 小さなお店の予約・問い合わせをスマホひとつで'
-description: 'LINE公式アカウントの作り方を店舗向けにやさしく解説。無料で始められる登録の手順、あいさつメッセージの設定、QRコードでお客様に案内するまでの流れを、長崎でAI相談を受けている私がまとめました。'
+description: 'お店用のLINE公式アカウントは無料でスマホひとつで作れます。登録からQRコード案内までの流れをやさしく解説します。'
 pubDate: 2026-07-16
 category: tutorial
 heroImage: '/assets/images/blog/thumb-line-koushiki-tsukurikata.webp'

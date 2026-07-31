@@ -1,6 +1,6 @@
 ---
 title: 'AXとは何か ― 「DXの次」と言われる言葉を、小さな会社の目線で解説'
-description: '最近ニュースで見かける「AX（AIトランスフォーメーション）」。DXと何が違うのか、なぜ今年になって急に言われ始めたのか。紙のデジタル化からAXまでの流れを4段階で整理し、小さな会社にとっての意味を専門用語なしで解説します。'
+description: 'ニュースで見かける「AX」とは何か。DXとの違いと、なぜ今年急に広まったのかを、小さな会社の目線で専門用語なしに解説します。'
 pubDate: 2026-07-29
 category: news
 heroImage: '/assets/images/blog/thumb-ax-toha-nani.webp'

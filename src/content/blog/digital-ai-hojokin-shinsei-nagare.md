@@ -1,6 +1,6 @@
 ---
 title: 'デジタル化・AI導入補助金の申請の流れ ― 8月25日締切なら、今日やることは2つ'
-description: '申請は一人ではできない？gBizIDに2週間かかる？デジタル化・AI導入補助金の申請の流れを、準備物・7つのステップ・落とし穴・締切からの逆算スケジュールまで、初めての方向けに順番どおり解説します。'
+description: '申請はIT導入支援事業者との二人三脚。準備物・7つのステップ・落とし穴を、締切からの逆算で順番に解説します。'
 pubDate: 2026-07-29
 category: subsidy
 heroImage: '/assets/images/blog/thumb-digital-ai-hojokin-shinsei-nagare.webp'

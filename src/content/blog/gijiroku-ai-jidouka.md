@@ -1,6 +1,6 @@
 ---
 title: '議事録・日報のAI自動化 ― 導入前に決めておく3つのこと'
-description: '会議のたびに誰かが1時間かけて議事録づくり。録音から文字起こし・要約までAIで自動化できる時代ですが、道具選びより先に決めるべき運用ルールが3つあります。導入前の必読ガイド。'
+description: '録音から文字起こし・要約までAIで自動化できる時代。道具選びより先に決めるべき運用ルールを3つ紹介します。'
 pubDate: 2026-07-24
 category: tutorial
 heroImage: '/assets/images/blog/thumb-gijiroku-ai-jidouka.webp'
