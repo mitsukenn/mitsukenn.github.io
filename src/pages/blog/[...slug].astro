@@ -24,14 +24,50 @@ const related = (await getCollection('blog', ({ data, id }) => !data.draft && id
 const fmt = (d: Date) =>
   `${d.getFullYear()}.${String(d.getMonth() + 1).padStart(2, '0')}.${String(d.getDate()).padStart(2, '0')}`;
 
+const pageUrl = new URL(`/blog/${post.id}/`, Astro.site).href;
+const imageUrl = post.data.heroImage
+  ? new URL(post.data.heroImage, Astro.site).href
+  : new URL('/assets/images/ogp.png', Astro.site).href;
+
 const articleJsonLd = {
   '@context': 'https://schema.org',
-  '@type': 'Article',
+  '@type': 'BlogPosting',
   headline: post.data.title,
   description: post.data.description,
+  image: [imageUrl],
   datePublished: post.data.pubDate.toISOString(),
-  author: { '@type': 'Organization', name: SITE.name },
-  publisher: { '@type': 'Organization', name: SITE.name },
+  dateModified: post.data.pubDate.toISOString(),
+  mainEntityOfPage: { '@type': 'WebPage', '@id': pageUrl },
+  url: pageUrl,
+  inLanguage: 'ja',
+  articleSection: CATEGORIES[post.data.category],
+  isAccessibleForFree: true,
+  author: {
+    '@type': 'Person',
+    name: '新垣 充生',
+    jobTitle: 'AI活用アドバイザー',
+    worksFor: { '@type': 'Organization', name: SITE.name, url: Astro.site?.href },
+  },
+  publisher: {
+    '@type': 'Organization',
+    name: SITE.name,
+    url: Astro.site?.href,
+    logo: {
+      '@type': 'ImageObject',
+      url: new URL('/assets/images/logo-mark.png', Astro.site).href,
+    },
+  },
+};
+
+// パンくず（検索結果に階層を出す）
+const breadcrumbJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'ホーム', item: Astro.site?.href },
+    { '@type': 'ListItem', position: 2, name: 'コラム', item: new URL('/blog/', Astro.site).href },
+    { '@type': 'ListItem', position: 3, name: post.data.title, item: pageUrl },
+  ],
 };
 ---
 
@@ -77,6 +113,7 @@ const articleJsonLd = {
   }
 
   <script type="application/ld+json" set:html={JSON.stringify(articleJsonLd)} />
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbJsonLd)} />
 
   <!-- コードブロック（プロンプト例など）にコピーボタンを付ける -->
   <script is:inline>
