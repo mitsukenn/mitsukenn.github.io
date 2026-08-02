@@ -63,6 +63,7 @@ ARTICLES = {
     "seizo-hojokin-mirai":             ("町工場 × 補助金", "いつできる？に、", "即答できる工場へ。"),
     "shigyo-hojokin-mirai":            ("士業 × 補助金", "顧問先が1年で、", "30社増えた話。"),
     "ohama-tatami-seisaku-story":      ("制作事例", "畳屋さんのHPが、", "できるまで。"),
+    "chatgpt-claude-code-codex-chigai": ("AIツール整理", "ChatGPTの次に、", "触るならこれ。"),
 }
 
 
