@@ -968,6 +968,18 @@ a {
   margin: 16px 0;
 }
 
+/* 太字だけの行は見出し扱い。続く本文との間隔を詰めてひとかたまりに見せる */
+.article-body p:has(> strong:only-child) {
+  margin-bottom: 6px;
+}
+
+/* 記事末尾のCTA前などの区切り線（* リセットで余白が消えていたので指定） */
+.article-body hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 40px 0 28px;
+}
+
 .article-body blockquote {
   border-left: 4px solid var(--border);
   padding-left: 16px;
@@ -994,6 +1006,13 @@ a {
 .article-body pre code {
   background: none;
   padding: 0;
+}
+
+/* 記事ページはスマホで上の余白を詰めて、本文を早く見せる */
+@media (max-width: 720px) {
+  .section--article {
+    padding: 36px 0 56px;
+  }
 }
 
 /* ---------- コラム: 記事内の表（スマホでは横スクロール） ---------- */
