@@ -1,6 +1,6 @@
 ---
-title: 'ChatGPTしか知らない方へ ― Claude・Codex・Claude Codeとの違いを1枚で整理'
-description: 'ChatGPTしか知らない方から「Claude Codeをやってみたい」と言われたので、4つの立ち位置と、追加課金なしで試せる道を整理しました。'
+title: 'Claude Codeって結局何？ChatGPT・Claude・Codexとの違いを1枚で整理'
+description: 'ChatGPTを毎日使っているお客様から「Claude Codeをやってみたい」と言われたので、4つの立ち位置と、追加課金なしで試せる道を整理しました。'
 pubDate: 2026-08-02
 category: tutorial
 heroImage: '/assets/images/blog/thumb-chatgpt-claude-code-codex-chigai.webp'
