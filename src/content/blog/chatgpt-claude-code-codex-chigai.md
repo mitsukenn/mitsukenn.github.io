@@ -1,5 +1,5 @@
 ---
-title: 'ChatGPT・Claude・Claude Code・Codexの違い ― 名前が似すぎな4つを整理しました'
+title: 'ChatGPTしか知らない方へ ― Claude・Codex・Claude Codeとの違いを1枚で整理'
 description: 'ChatGPTしか知らない方から「Claude Codeをやってみたい」と言われたので、4つの立ち位置と、追加課金なしで試せる道を整理しました。'
 pubDate: 2026-08-02
 category: tutorial
@@ -11,6 +11,8 @@ draft: false
 <!-- 文体ルール: ①AIっぽい整いすぎた文章NG、カジュアル敬語 ②偉そうNG、教えるのではなく共有 ③演出フレーズNG ④小見出しは「## ① 短いラベル」形式の連番 ⑤コロンでのラベル書きNG -->
 <!-- 事実確認（2026-08-02時点・Web検索で確認）: Codex=ChatGPTの有料プラン（Plus月20ドル〜）に含まれる／2026-04-02から利用量の数え方がトークンベースに変更／入口はデスクトップアプリ・CLI・IDE拡張・クラウドの4つ。Claude Code=無料プラン不可、Claude Pro月20ドル〜／2026-07-10にデスクトップ版へブラウザ内蔵。料金は変わりやすいので更新時に公式で再確認 -->
 <!-- TODO: がっきーの実体験を追記（このお客様のその後、実際にCodexを触ってもらった感想など） -->
+
+先に中身を1枚にまとめました。ChatGPTに月20ドル払っている方は、④の料金だけでも見てもらえると得します。
 
 [![記事の要点を1枚にまとめた図。4つはOpenAI社とAnthropic社かけるチャットとエージェントで整理できること、チャットとエージェントの違い、プログラマー以外の使い道、料金の一覧、選び方の順番](/assets/images/blog/zu-matome-1mai.webp)](/assets/images/blog/zu-matome-1mai.webp)
 
