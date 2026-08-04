@@ -140,5 +140,85 @@ const breadcrumbJsonLd = {
     });
   </script>
 
+  <!-- 「□ 」で始まる太字行をチェックできるようにする（状態はこの端末に保存） -->
+  <script is:inline>
+    (function () {
+      var items = [];
+      document.querySelectorAll('.article-body p > strong').forEach(function (s) {
+        if (s.parentNode.childNodes.length === 1 && s.textContent.trim().indexOf('□') === 0) items.push(s);
+      });
+      if (!items.length) return;
+
+      var KEY = 'checklist:' + location.pathname;
+      var saved = {};
+      try {
+        saved = JSON.parse(localStorage.getItem(KEY) || '{}');
+      } catch (e) {}
+
+      var counter = document.createElement('p');
+      counter.className = 'check-progress';
+      var count = document.createElement('span');
+      var reset = document.createElement('button');
+      reset.type = 'button';
+      reset.className = 'check-reset';
+      reset.textContent = 'ぜんぶ外す';
+      counter.appendChild(count);
+      counter.appendChild(reset);
+      items[0].parentNode.parentNode.insertBefore(counter, items[0].parentNode);
+
+      function refresh() {
+        var done = items.filter(function (s) {
+          return s.parentNode.classList.contains('is-done');
+        }).length;
+        count.textContent = 'チェック ' + done + ' / ' + items.length;
+        counter.classList.toggle('is-all', done === items.length);
+      }
+
+      items.forEach(function (s, i) {
+        var p = s.parentNode;
+        s.textContent = s.textContent.replace(/^□\s*/, '');
+        var box = document.createElement('span');
+        box.className = 'check-box';
+        s.insertBefore(box, s.firstChild);
+        p.className = 'check-item';
+        p.setAttribute('role', 'button');
+        p.setAttribute('tabindex', '0');
+        if (saved[i]) p.classList.add('is-done');
+        p.setAttribute('aria-pressed', saved[i] ? 'true' : 'false');
+
+        function toggle() {
+          var on = p.classList.toggle('is-done');
+          p.setAttribute('aria-pressed', on ? 'true' : 'false');
+          saved[i] = on;
+          try {
+            localStorage.setItem(KEY, JSON.stringify(saved));
+          } catch (e) {}
+          refresh();
+        }
+        p.addEventListener('click', toggle);
+        p.addEventListener('keydown', function (e) {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            toggle();
+          }
+        });
+      });
+
+      reset.addEventListener('click', function () {
+        items.forEach(function (s, i) {
+          s.parentNode.classList.remove('is-done');
+          s.parentNode.setAttribute('aria-pressed', 'false');
+          saved[i] = false;
+        });
+        try {
+          localStorage.setItem(KEY, JSON.stringify(saved));
+        } catch (e) {}
+        refresh();
+      });
+
+      refresh();
+    })();
+  </script>
+
   <CtaSection />
 </Base>

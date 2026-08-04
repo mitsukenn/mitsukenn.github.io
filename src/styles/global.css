@@ -978,6 +978,91 @@ a {
   margin-bottom: 6px;
 }
 
+/* ---------- コラム: チェックリスト（「□ 」で始まる太字行） ---------- */
+.article-body .check-item {
+  cursor: pointer;
+  user-select: none;
+  padding: 6px 10px 6px 8px;
+  margin: 0 -10px 6px -8px;
+  border-radius: var(--radius-sm);
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.article-body .check-item:hover,
+.article-body .check-item:focus-visible {
+  background: var(--accent-soft);
+  outline: none;
+}
+
+.check-item .check-box {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+  vertical-align: -3px;
+  border: 2px solid var(--accent);
+  border-radius: 5px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.check-item.is-done .check-box {
+  background: var(--accent);
+}
+
+.check-item.is-done .check-box::after {
+  content: '';
+  position: absolute;
+  left: 5px;
+  top: 1px;
+  width: 5px;
+  height: 10px;
+  border: solid #fff;
+  border-width: 0 2.5px 2.5px 0;
+  transform: rotate(45deg);
+}
+
+.check-item.is-done {
+  color: var(--text-weak);
+  text-decoration: line-through;
+  text-decoration-color: var(--border);
+}
+
+.check-progress {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--accent-dark);
+  background: var(--accent-soft);
+  border-radius: var(--radius-sm);
+  padding: 10px 14px;
+  margin-bottom: 16px;
+}
+
+.check-progress.is-all {
+  background: #e6f6ec;
+  color: #1c7a45;
+}
+
+.check-reset {
+  margin-left: auto;
+  border: 1px solid currentColor;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 500;
+  padding: 4px 12px;
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+.check-reset:hover {
+  background: rgba(255, 255, 255, 0.6);
+}
+
 /* 記事末尾のCTA前などの区切り線（* リセットで余白が消えていたので指定） */
 .article-body hr {
   border: none;
