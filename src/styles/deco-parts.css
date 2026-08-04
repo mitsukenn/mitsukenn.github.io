@@ -1,0 +1,165 @@
+/* ============================================================
+   背景あしらい（素材ベース）
+
+   素材は scripts/build-deco-parts.py が
+     99_image_output/deco_parts/raw/*.png → public/assets/images/deco/*.webp
+   に変換している。
+
+   ■ 引き伸ばさないこと（2026-08-04 の作り直し）
+   以前は1枚絵を background-size:100% 100% でセクション全面に敷いていたが、
+   セクションの縦横比が素材と違うぶんだけ絵が潰れた。
+   記事ページ（縦4000px超）では3:2の素材が極端に間延びして崩れた。
+   いまは幅だけを指定して高さは auto に任せているので、
+   どんな高さのセクションに置いても縦横比は保たれる。
+
+   ■ 素材は「1枚1パーツ・青のみ・線画のみ」に統一（3バッチ目）
+   四隅ぶんがまとめて描かれた1枚絵は、切り出しが要るうえ置ける場所も限られた。
+   パーツ単位なら好きな隅に好きな組み合わせで置ける。
+
+   使い方: セクションに .dp と、置きたいパーツのクラスを足すだけ。
+     <section class="section dp dp--frame">
+   ============================================================ */
+
+.dp {
+  position: relative;
+  overflow: hidden;
+}
+
+/* 本文をあしらいより前に出す */
+.dp > .container {
+  position: relative;
+  z-index: 1;
+}
+
+.dp::before,
+.dp::after {
+  content: '';
+  position: absolute;
+  pointer-events: none;
+  background-repeat: no-repeat;
+  /* 幅だけを画面サイズに追従させ、高さは auto。ここが「歪ませない」肝 */
+  background-size: contain;
+  width: var(--dp-w, clamp(120px, 18vw, 240px));
+  aspect-ratio: 1 / 1;
+}
+
+/* 素材の線が濃いので、全体の薄さはここで一括して決める */
+.dp::before,
+.dp::after {
+  opacity: 0.16;
+}
+
+/* ---------- 左上に置くパーツ ---------- */
+.dp--frame::before {
+  background-image: url('/assets/images/deco/frame-circuit.webp');
+  left: -34px;
+  top: 22px;
+}
+
+.dp--wire::before {
+  background-image: url('/assets/images/deco/wire-corner.webp');
+  left: -30px;
+  top: 26px;
+}
+
+.dp--target::before {
+  background-image: url('/assets/images/deco/target.webp');
+  left: -60px;
+  top: 30px;
+  opacity: 0.12;
+}
+
+/* ---------- 右下に置くパーツ ---------- */
+.dp--diagonal::after {
+  background-image: url('/assets/images/deco/dot-diagonal.webp');
+  right: -40px;
+  bottom: 24px;
+}
+
+.dp--hatch::after {
+  background-image: url('/assets/images/deco/hatch-diagonal.webp');
+  right: -40px;
+  bottom: 24px;
+}
+
+.dp--flow::after {
+  background-image: url('/assets/images/deco/flow.webp');
+  right: -26px;
+  bottom: 28px;
+  opacity: 0.14;
+}
+
+.dp--wave::after {
+  background-image: url('/assets/images/deco/wave-graph.webp');
+  right: -30px;
+  bottom: 30px;
+  aspect-ratio: 440 / 298;
+  opacity: 0.18;
+}
+
+.dp--scale::after {
+  background-image: url('/assets/images/deco/scale-line.webp');
+  right: -20px;
+  bottom: 32px;
+  aspect-ratio: 440 / 301;
+  opacity: 0.2;
+}
+
+/* ---------- 記事ページ用 ----------
+   記事セクションは縦4000pxを超えることがあり、隅に置くと上端と下端にしか
+   出ないので何も無い面が延々と続く。見出しまわりを左右から挟む配置にする */
+.dp--header::before {
+  background-image: url('/assets/images/deco/frame-circuit.webp');
+  left: -36px;
+  top: 16px;
+}
+
+.dp--header::after {
+  background-image: url('/assets/images/deco/wire-corner.webp');
+  right: -36px;
+  top: 16px;
+  transform: scaleX(-1);
+}
+
+/* ============================================================
+   スマホ（メインの閲覧環境）
+
+   375px で実測したところ、以前の指定には割に合わない問題があった。
+     - 飾りは98px幅で、負のオフセットのせいで21〜62%が画面外
+     - 残った断片が opacity 0.12 でほぼ見えない
+     - それでいて画像は8ファイル206KBが落ちてくる
+   「ほぼ見えないものに206KB」は、スマホ中心の読者には割に合わない。
+
+   そこで方針を変える。
+     1. セクションあたり1つ（左上の::beforeのみ）に減らし、::afterは出さない
+     2. 残す1つは画面内に収まる位置へ寄せ、読める大きさにする
+     3. 重い3枚（hatch-diagonal 53KB / target 50KB / dot-diagonal 40KB）は出さない
+        display:none の疑似要素は画像を取りに行かないので、転送量がそのまま浮く
+   結果、落ちてくるのは2ファイル37KB（約1/5）になる。
+   ============================================================ */
+@media (max-width: 720px) {
+  /* 右下のパーツは全部やめる（狭い画面では本文と競合するだけ） */
+  .dp::after {
+    display: none;
+  }
+
+  /* 重い素材は読み込ませない。この2セクションは飾りなしで通す */
+  .dp--target::before {
+    display: none;
+  }
+
+  /* 記事本文だけは飾りを出さない。
+     スマホでは本文が画面いっぱいに広がるため、飾りが見出しの真後ろに重なる。
+     読むためだけのページなので、ここは何も置かないほうがいい */
+  .section--article.dp::before {
+    display: none;
+  }
+
+  /* 残す1つは、はみ出させずに全体を見せる */
+  .dp::before {
+    --dp-w: clamp(112px, 34vw, 150px);
+    left: 2px;
+    top: 14px;
+    opacity: 0.16;
+  }
+}

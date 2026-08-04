@@ -38,7 +38,7 @@ const works = [
 
 <Base>
   <!-- 1. ファーストビュー（キャッチコピーはバナー画像内。h1はSEO・読み上げ用に保持） -->
-  <section class="hero hero--banner deco deco--dots-tr">
+  <section class="hero hero--banner">
     <div class="container">
       <h1 class="visually-hidden">{SITE.catchcopy}</h1>
       <!-- バナー内の「無料相談 受付中」は画像なので、バナー全体を相談ページへのリンクにする -->
@@ -60,7 +60,7 @@ const works = [
   </section>
 
   <!-- 2. こんなお悩みありませんか（共感ファースト） -->
-  <section class="section deco deco--plus-tl deco--lines-br">
+  <section class="section dp dp--frame dp--diagonal">
     <div class="container">
       <div class="section-title">
         <span class="section-title__sub">お悩み</span>
@@ -96,7 +96,7 @@ const works = [
   </section>
 
   <!-- 2.5 活用イメージ（実数で見せる。Phase Bで実例ギャラリーに拡張予定） -->
-  <section class="section section--soft deco deco--dots-tr" id="cases">
+  <section class="section section--soft dp dp--frame dp--hatch" id="cases">
     <div class="container">
       <div class="section-title">
         <span class="section-title__sub">活用イメージ</span>
@@ -153,7 +153,7 @@ const works = [
   </section>
 
   <!-- 3. ごあいさつ（顔=安心を先に見せる） -->
-  <section class="section">
+  <section class="section dp dp--wire dp--wave">
     <div class="container">
       <div class="section-title">
         <span class="section-title__sub">ごあいさつ</span>
@@ -181,7 +181,7 @@ const works = [
   </section>
 
   <!-- 3.5 選ばれる理由（3つの約束） -->
-  <section class="section section--soft deco deco--plus-tl">
+  <section class="section section--soft dp dp--wire dp--flow">
     <div class="container">
       <div class="section-title">
         <span class="section-title__sub">選ばれる理由</span>
@@ -208,7 +208,7 @@ const works = [
   </section>
 
   <!-- 4. サービス（主力=AIシステム開発） -->
-  <section class="section deco deco--dots-tr" id="service">
+  <section class="section dp dp--frame dp--scale" id="service">
     <div class="container">
       <div class="section-title">
         <span class="section-title__sub">できること</span>
@@ -263,7 +263,7 @@ const works = [
   </section>
 
   <!-- 5. 制作実績・お客様の声 -->
-  <section class="section section--soft">
+  <section class="section section--soft dp dp--target dp--diagonal">
     <div class="container">
       <div class="section-title">
         <span class="section-title__sub">お手伝いした実績</span>
@@ -296,7 +296,7 @@ const works = [
   </section>
 
   <!-- 6. 料金の目安 -->
-  <section class="section deco deco--ring-tr">
+  <section class="section dp dp--wire dp--hatch">
     <div class="container">
       <div class="section-title">
         <span class="section-title__sub">料金</span>
@@ -331,7 +331,7 @@ const works = [
   </section>
 
   <!-- 7. 相談の流れ（行動障壁の解消） -->
-  <section class="section section--soft">
+  <section class="section section--soft dp dp--target dp--flow">
     <div class="container">
       <div class="section-title">
         <span class="section-title__sub">ご相談の流れ</span>
@@ -360,7 +360,7 @@ const works = [
   <!-- 8. コラム -->
   {
     posts.length > 0 && (
-      <section class="section deco deco--plus-tl">
+      <section class="section dp dp--frame dp--wave">
         <div class="container">
           <div class="section-title">
             <span class="section-title__sub">読みもの</span>
@@ -416,7 +416,7 @@ const works = [
   }
 
   <!-- 8.5 よくある質問（抜粋・不安の先回り） -->
-  <section class="section section--soft">
+  <section class="section section--soft dp dp--frame dp--diagonal">
     <div class="container article">
       <div class="section-title">
         <span class="section-title__sub">よくある質問</span>

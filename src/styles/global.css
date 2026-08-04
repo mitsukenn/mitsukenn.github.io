@@ -79,7 +79,9 @@ a {
 }
 
 .section--soft {
-  background: var(--bg-soft);
+  /* deco-parts.css が背景レイヤーを重ねるので、色だけを指定する
+     （background のショートハンドだと background-image ごと消える） */
+  background-color: var(--bg-soft);
 }
 
 .section-title {
@@ -236,7 +238,10 @@ a {
   overflow: hidden;
 }
 
+/* 2026-08-04 停止。下層ページの見出し帯のドットは、素材ベースのあしらい
+   （deco-parts.css）と役割が重なるので出さない。戻すときは display の行を消す */
 .page-header::after {
+  display: none;
   content: '';
   position: absolute;
   pointer-events: none;

@@ -3,3 +3,6 @@ dist/
 .astro/
 .DS_Store
 .claude/
+
+# Pythonスクリプトのキャッシュ
+scripts/__pycache__/

@@ -72,7 +72,7 @@ const breadcrumbJsonLd = {
 ---
 
 <Base title={post.data.title} description={post.data.description} ogImage={post.data.ogImage}>
-  <section class="section section--article">
+  <section class="section section--article dp dp--header">
     <div class="container article">
       <header class="article__header">
         <span class="blog-card__cat">{CATEGORIES[post.data.category]}</span>
@@ -90,7 +90,7 @@ const breadcrumbJsonLd = {
 
   {
     related.length > 0 && (
-      <section class="section section--soft">
+      <section class="section section--soft dp dp--target dp--hatch">
         <div class="container">
           <div class="section-title">
             <h2>関連記事</h2>
