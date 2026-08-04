@@ -155,6 +155,113 @@ const breadcrumbJsonLd = {
         saved = JSON.parse(localStorage.getItem(KEY) || '{}');
       } catch (e) {}
 
+      // 各項目の「（目安は◯分が◯分に）」から時短分数を読み、見出しから分野を拾う
+      var NEXT_STEP = {
+        '①': { label: 'ChatGPTの始め方', href: '/blog/chatgpt-hajimekata/' },
+        '②': { label: '議事録AIの記事', href: '/blog/gijiroku-ai-jidouka/' },
+        '③': { label: 'Excel管理表をアプリにする記事', href: '/blog/excel-kanrihyou-app-ka/' },
+      };
+      var meta = items.map(function (s) {
+        var p = s.parentNode;
+        var body = p.nextElementSibling && p.nextElementSibling.tagName === 'P' ? p.nextElementSibling.textContent : '';
+        var m = body.match(/目安は([^）]*)/);
+        var before = 0;
+        var after = 0;
+        if (m) {
+          var nums = m[1].match(/(\d+)\s*(時間|分)/g) || [];
+          if (nums.length >= 2) {
+            var toMin = function (x) {
+              var n = parseInt(x, 10);
+              return x.indexOf('時間') >= 0 ? n * 60 : n;
+            };
+            before = toMin(nums[0]);
+            after = toMin(nums[nums.length - 1]);
+          }
+        }
+        var head = p;
+        var section = '';
+        while ((head = head.previousElementSibling)) {
+          if (head.tagName === 'H2') {
+            section = head.textContent.trim().charAt(0);
+            break;
+          }
+        }
+        return {
+          label: s.textContent.trim().replace(/^□\s*/, ''),
+          before: before,
+          after: after,
+          section: section,
+        };
+      });
+
+      function fmt(min) {
+        if (min < 60) return min + '分';
+        var h = Math.floor(min / 60);
+        var m2 = min % 60;
+        return m2 ? h + '時間' + m2 + '分' : h + '時間';
+      }
+
+      var result = document.createElement('div');
+      result.className = 'check-result';
+      result.hidden = true;
+      var lastBody = items[items.length - 1].parentNode.nextElementSibling || items[items.length - 1].parentNode;
+      lastBody.parentNode.insertBefore(result, lastBody.nextSibling);
+
+      function renderResult(doneIdx) {
+        if (!doneIdx.length) {
+          result.hidden = true;
+          return;
+        }
+        result.hidden = false;
+        var before = 0;
+        var after = 0;
+        var counted = 0;
+        var top = null;
+        doneIdx.forEach(function (i) {
+          var d = meta[i];
+          if (d.before && d.after) {
+            before += d.before;
+            after += d.after;
+            counted++;
+            if (!top || d.before - d.after > top.before - top.after) top = d;
+          }
+        });
+        var saveMin = before - after;
+        var skipped = doneIdx.length - counted;
+        var html = '<h3>チェックした' + doneIdx.length + '個で分かること</h3>';
+        if (counted) {
+          html +=
+            '<p class="check-result__lead">1回ぶんを合計すると <b>' +
+            fmt(before) +
+            ' が ' +
+            fmt(after) +
+            '</b>。<br>それぞれ週1回起きるとして、ひと月でおよそ <b>' +
+            fmt(saveMin * 4) +
+            '</b> が浮く計算です。</p>' +
+            '<p class="check-result__note">記事に書いた目安をそのまま足しただけの、ざっくりした計算です。' +
+            (skipped ? '数字で出しにくい' + skipped + '個は入れていません。' : '') +
+            '</p>';
+        } else {
+          html +=
+            '<p class="check-result__lead">チェックした項目は、時間の目安を数字で出しにくいものでした。ただ、抜け漏れや手戻りが減るぶんの効きめは大きいところです。</p>';
+        }
+        if (!top) top = meta[doneIdx[0]];
+        if (top) {
+          var step = NEXT_STEP[top.section] || NEXT_STEP['①'];
+          html +=
+            '<p class="check-result__next"><b>次の1つは「' +
+            top.label +
+            '」から。</b><br>' +
+            (counted ? 'チェックした中でいちばん時間が浮くのがここです。' : '') +
+            'まずこれだけをAIに任せてみてください。やり方は「<a href="' +
+            step.href +
+            '">' +
+            step.label +
+            '</a>」に書いています。</p>';
+        }
+        result.innerHTML = html;
+      }
+
       var counter = document.createElement('p');
       counter.className = 'check-progress';
       var count = document.createElement('span');
@@ -167,11 +274,13 @@ const breadcrumbJsonLd = {
       items[0].parentNode.parentNode.insertBefore(counter, items[0].parentNode);
 
       function refresh() {
-        var done = items.filter(function (s) {
-          return s.parentNode.classList.contains('is-done');
-        }).length;
-        count.textContent = 'チェック ' + done + ' / ' + items.length;
-        counter.classList.toggle('is-all', done === items.length);
+        var doneIdx = [];
+        items.forEach(function (s, i) {
+          if (s.parentNode.classList.contains('is-done')) doneIdx.push(i);
+        });
+        count.textContent = 'チェック ' + doneIdx.length + ' / ' + items.length;
+        counter.classList.toggle('is-all', doneIdx.length === items.length);
+        renderResult(doneIdx);
       }
 
       items.forEach(function (s, i) {
