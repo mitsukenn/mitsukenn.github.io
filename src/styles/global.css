@@ -1774,3 +1774,400 @@ a {
   color: var(--accent-dark);
   margin-bottom: 2px;
 }
+
+/* ---------- AI用語辞典（/ai-yougo/） ---------- */
+.yougo-intro,
+.yougo-search,
+.yougo-nav,
+.yougo-group,
+.yougo-outro,
+.yougo-empty {
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.yougo-intro p {
+  font-size: 16px;
+  line-height: 1.95;
+  margin-bottom: 12px;
+}
+
+.yougo-intro__meta {
+  font-size: 13px;
+  color: var(--text-weak);
+}
+
+/* しぼり込み。ページ最上部に置いて「読むものではなく探すもの」と一目で分かるようにする */
+.yougo-search {
+  margin: 0 auto 18px;
+}
+
+.yougo-search__input {
+  width: 100%;
+  padding: 14px 18px;
+  font-family: inherit;
+  font-size: 16px;
+  color: var(--text);
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  box-shadow: var(--shadow);
+}
+
+.yougo-search__input:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-soft);
+}
+
+.yougo-search__count {
+  margin-top: 10px;
+  padding-left: 4px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--accent-dark);
+}
+
+/* カテゴリの飛び先 */
+.yougo-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 40px;
+}
+
+.yougo-nav a {
+  padding: 6px 14px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--accent-dark);
+  background: var(--accent-soft);
+  border-radius: 999px;
+  text-decoration: none;
+  transition: background 0.15s;
+}
+
+.yougo-nav a:hover {
+  background: #cfeaf6;
+}
+
+/* カテゴリの見出し */
+.yougo-group {
+  margin-bottom: 48px;
+}
+
+.yougo-group__title {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  font-size: 20px;
+  color: var(--brand);
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--accent-soft);
+  scroll-margin-top: 90px;
+}
+
+.yougo-group__count {
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--text-weak);
+}
+
+.yougo-group__lead {
+  margin: 12px 0 20px;
+  font-size: 14px;
+  color: var(--text-weak);
+}
+
+/* 用語カード */
+.yougo-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
+  gap: 14px;
+}
+
+.yougo-term {
+  position: relative;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 18px 20px;
+  scroll-margin-top: 90px;
+}
+
+.yougo-term:target {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-soft);
+}
+
+.yougo-term__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 6px 8px;
+  /* 右上のコピーボタンに重ならないよう逃がす */
+  padding-right: 64px;
+  font-size: 16px;
+  line-height: 1.5;
+  margin-bottom: 8px;
+}
+
+.yougo-term__anchor {
+  color: var(--border);
+  text-decoration: none;
+  font-weight: 400;
+}
+
+.yougo-term__anchor:hover {
+  color: var(--accent);
+}
+
+.yougo-term__name {
+  color: var(--accent-dark);
+  word-break: auto-phrase;
+}
+
+.yougo-term__en {
+  font-size: 11px;
+  font-weight: 400;
+  color: var(--text-weak);
+  letter-spacing: 0.02em;
+}
+
+.yougo-badge {
+  display: inline-block;
+  padding: 2px 8px;
+  font-size: 10px;
+  font-weight: 700;
+  color: #fff;
+  background: var(--accent);
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+.yougo-term__def {
+  font-size: 14px;
+  line-height: 1.9;
+}
+
+.yougo-term__use {
+  margin-top: 10px;
+  padding: 10px 12px;
+  font-size: 13px;
+  line-height: 1.85;
+  color: var(--text-weak);
+  background: var(--bg-soft);
+  border-radius: var(--radius-sm);
+}
+
+.yougo-term__use b {
+  display: block;
+  color: var(--accent-dark);
+  font-size: 12px;
+  margin-bottom: 2px;
+}
+
+.yougo-term__link {
+  margin-top: 10px;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.yougo-empty {
+  padding: 32px 0;
+  text-align: center;
+  color: var(--text-weak);
+}
+
+.yougo-outro {
+  margin-top: 8px;
+  padding: 24px 28px;
+  background: var(--bg-soft);
+  border-radius: var(--radius);
+}
+
+.yougo-outro p {
+  font-size: 15px;
+  line-height: 1.95;
+}
+
+.yougo-outro p + p {
+  margin-top: 10px;
+}
+
+/* スマホはヘッダーが2段になるぶん、アンカー着地位置を下げる */
+@media (max-width: 720px) {
+  .yougo-group__title,
+  .yougo-term {
+    scroll-margin-top: 130px;
+  }
+}
+
+@media (max-width: 480px) {
+  .yougo-list {
+    grid-template-columns: 1fr;
+  }
+
+  .yougo-term {
+    padding: 16px;
+  }
+
+  .yougo-group__title {
+    font-size: 18px;
+  }
+
+  .yougo-outro {
+    padding: 20px;
+  }
+}
+
+/* コラム一覧から用語辞典への導線 */
+.yougo-promo {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 28px;
+  padding: 16px 20px;
+  background: #fff;
+  border: 1px solid var(--accent);
+  border-radius: var(--radius);
+  text-decoration: none;
+  color: var(--text);
+  transition: box-shadow 0.15s, transform 0.15s;
+}
+
+.yougo-promo:hover {
+  box-shadow: var(--shadow);
+  transform: translateY(-2px);
+}
+
+.yougo-promo__label {
+  flex-shrink: 0;
+  padding: 4px 12px;
+  font-size: 11px;
+  font-weight: 700;
+  color: #fff;
+  background: var(--accent);
+  border-radius: 999px;
+}
+
+.yougo-promo__body {
+  flex: 1;
+  font-size: 13px;
+  line-height: 1.7;
+  color: var(--text-weak);
+}
+
+.yougo-promo__body b {
+  display: block;
+  font-size: 15px;
+  color: var(--accent-dark);
+}
+
+.yougo-promo__arrow {
+  flex-shrink: 0;
+  color: var(--accent);
+  font-weight: 700;
+}
+
+@media (max-width: 480px) {
+  .yougo-promo {
+    flex-wrap: wrap;
+    gap: 8px 12px;
+    padding: 14px 16px;
+  }
+
+  .yougo-promo__body {
+    flex-basis: 100%;
+    order: 3;
+  }
+}
+
+/* 用語辞典: よく調べられる言葉（先頭に着地した人の受け皿） */
+.yougo-quick {
+  max-width: 900px;
+  margin: 0 auto 24px;
+}
+
+.yougo-quick__title {
+  margin-bottom: 8px;
+  padding-left: 4px;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text-weak);
+}
+
+.yougo-quick__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.yougo-quick__list a {
+  padding: 7px 14px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--accent-dark);
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  text-decoration: none;
+  transition: border-color 0.15s, background 0.15s;
+}
+
+.yougo-quick__list a:hover {
+  background: var(--accent-soft);
+  border-color: var(--accent);
+}
+
+/* 用語辞典: 定義のコピー */
+/* カード右上に浮かせる。100語ぶんの行を増やさないため */
+.yougo-copy {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  padding: 3px 12px;
+  font-family: inherit;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text-weak);
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  cursor: pointer;
+  transition: color 0.15s, border-color 0.15s;
+}
+
+.yougo-copy:hover {
+  color: var(--accent-dark);
+  border-color: var(--accent);
+}
+
+.yougo-copy.is-copied {
+  color: #fff;
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+/* 用語辞典: 検索欄に戻る */
+.yougo-totop {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  z-index: 50;
+  padding: 10px 18px;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 700;
+  color: #fff;
+  background: var(--accent);
+  border: none;
+  border-radius: 999px;
+  box-shadow: 0 4px 16px rgba(14, 143, 190, 0.4);
+  cursor: pointer;
+}
+
+.yougo-totop:hover {
+  background: var(--accent-dark);
+}

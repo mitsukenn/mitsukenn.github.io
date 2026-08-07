@@ -1,0 +1,293 @@
+---
+import Base from '../layouts/Base.astro';
+import CtaSection from '../components/CtaSection.astro';
+import { GLOSSARY, ALL_TERMS, QUICK_TERMS } from '../data/glossary';
+
+// 用語集の最終更新日。用語を足したら必ずここも直す（AIも人も鮮度を見ている）
+const UPDATED = '2026-08-07';
+
+const HOT_COUNT = ALL_TERMS.filter((t) => t.hot).length;
+
+const pageUrl = new URL('/ai-yougo/', Astro.site).href;
+const pageDesc = `生成AIの用語${ALL_TERMS.length}語を、専門用語を使わずに1ページにまとめました。中小企業の経営者・現場責任者の目線で「で、うちに関係あるの？」まで書いています。`;
+
+// 用語辞典であることを機械に宣言する（AI検索に引用されるための要）
+const definedTermSet = {
+  '@context': 'https://schema.org',
+  '@type': 'DefinedTermSet',
+  '@id': pageUrl,
+  name: '中小企業のためのAI用語辞典',
+  description: pageDesc,
+  url: pageUrl,
+  inLanguage: 'ja',
+  dateModified: UPDATED,
+  publisher: { '@type': 'Organization', name: 'まちのAI屋さん', url: Astro.site?.href },
+  hasDefinedTerm: ALL_TERMS.map((t) => ({
+    '@type': 'DefinedTerm',
+    '@id': `${pageUrl}#${t.id}`,
+    name: t.term,
+    ...(t.en ? { alternateName: t.en } : {}),
+    description: t.use ? `${t.def}${t.use}` : t.def,
+    url: `${pageUrl}#${t.id}`,
+    inDefinedTermSet: pageUrl,
+  })),
+};
+
+const breadcrumbJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'ホーム', item: Astro.site?.href },
+    { '@type': 'ListItem', position: 2, name: 'AI用語辞典', item: pageUrl },
+  ],
+};
+---
+
+<Base title={`AI用語辞典（${ALL_TERMS.length}語）`} description={pageDesc}>
+  <div class="page-header">
+    <div class="container">
+      <h1>AI用語辞典</h1>
+      <p>ニュースで見かけるAIの言葉を、<span class="nb">専門用語なしで{ALL_TERMS.length}語</span></p>
+    </div>
+  </div>
+
+  <section class="section dp dp--wire dp--flow">
+    <div class="container">
+      <div class="yougo-search">
+        <label class="visually-hidden" for="yougo-q">用語をしぼり込む</label>
+        <input
+          type="search"
+          id="yougo-q"
+          class="yougo-search__input"
+          placeholder="言葉をさがす（例 エージェント、補助金）"
+          autocomplete="off"
+        />
+        <p class="yougo-search__count" id="yougo-count" hidden></p>
+      </div>
+
+      <div class="yougo-quick" id="yougo-quick">
+        <p class="yougo-quick__title">よく調べられる言葉</p>
+        <div class="yougo-quick__list">
+          {QUICK_TERMS.map((t) => <a href={`#${t.id}`}>{t.term.replace(/（.*）$/, '')}</a>)}
+        </div>
+      </div>
+
+      <div class="yougo-intro" id="yougo-intro">
+        <p>
+          ニュースで見かけるAIの言葉を{ALL_TERMS.length}語、<b>小さな会社の目線</b>でまとめました。
+        </p>
+        <p>
+          全部を覚える必要はありません。<span class="yougo-badge">2026注目</span>がついた{HOT_COUNT}語だけ眺めておけば、今のAIの話にはだいたいついていけます。
+        </p>
+        <p class="yougo-intro__meta">最終更新 {UPDATED.replaceAll('-', '.')}　／　年1回、全体を見直しています</p>
+      </div>
+
+      <nav class="yougo-nav" aria-label="用語のカテゴリ">
+        {GLOSSARY.map((g) => <a href={`#${g.id}`}>{g.name}</a>)}
+      </nav>
+
+      {
+        GLOSSARY.map((g) => (
+          <section class="yougo-group" data-group={g.id}>
+            <h2 id={g.id} class="yougo-group__title">
+              {g.name}
+              <span class="yougo-group__count">{g.terms.length}語</span>
+            </h2>
+            <p class="yougo-group__lead">{g.lead}</p>
+
+            <div class="yougo-list">
+              {g.terms.map((t) => (
+                <div
+                  class="yougo-term"
+                  id={t.id}
+                  data-search={`${t.term} ${t.en ?? ''} ${t.def} ${t.use ?? ''}`.toLowerCase()}
+                >
+                  <h3 class="yougo-term__head">
+                    <a class="yougo-term__anchor" href={`#${t.id}`} aria-label={`${t.term}へのリンク`}>
+                      #
+                    </a>
+                    <span class="yougo-term__name">{t.term}</span>
+                    {t.en && <span class="yougo-term__en">{t.en}</span>}
+                    {t.hot && <span class="yougo-badge">2026注目</span>}
+                  </h3>
+                  <p class="yougo-term__def">{t.def}</p>
+                  {t.use && (
+                    <p class="yougo-term__use">
+                      <b>うちに関係ある？</b>
+                      {t.use}
+                    </p>
+                  )}
+                  {t.link && (
+                    <p class="yougo-term__link">
+                      <a href={t.link.href}>くわしくは「{t.link.label}」→</a>
+                    </p>
+                  )}
+                  {/* 社内資料に貼る人向け。出典URLまで込みでコピーする */}
+                  <button
+                    type="button"
+                    class="yougo-copy"
+                    aria-label={`${t.term}の説明をコピー`}
+                    data-copy={`${t.term}\n${t.def}${t.use ? `\n${t.use}` : ''}\n\nまちのAI屋さん AI用語辞典 ${pageUrl}#${t.id}`}
+                  >
+                    コピー
+                  </button>
+                </div>
+              ))}
+            </div>
+          </section>
+        ))
+      }
+
+      <p class="yougo-empty" id="yougo-empty" hidden>
+        あてはまる用語が見つかりませんでした。別の言い方で探してみてください。
+      </p>
+
+      <div class="yougo-outro">
+        <p>
+          この辞典は、記事を書くたびに中身を足していきます。ひとつひとつの言葉をもっと掘り下げた解説は、<a href="/blog/"
+            >コラム</a
+          >に順次書いていく予定です。
+        </p>
+        <p>
+          「うちの場合はどれが関係あるの？」は、言葉だけ眺めていても分かりにくいところです。そこはご相談いただければ、一緒に整理します。
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <button type="button" class="yougo-totop" id="yougo-totop" hidden>
+    <span aria-hidden="true">↑</span> さがす
+  </button>
+
+  <script type="application/ld+json" set:html={JSON.stringify(definedTermSet)} />
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbJsonLd)} />
+
+  <!-- 用語のしぼり込み。JSが動かない環境では全語がそのまま並ぶだけ -->
+  <script is:inline>
+    (function () {
+      var q = document.getElementById('yougo-q');
+      var count = document.getElementById('yougo-count');
+      var empty = document.getElementById('yougo-empty');
+      if (!q) return;
+      var terms = Array.prototype.slice.call(document.querySelectorAll('.yougo-term'));
+      var groups = Array.prototype.slice.call(document.querySelectorAll('.yougo-group'));
+      // しぼり込み中は、案内まわりを引っ込めて結果だけ見せる
+      var aside = [
+        document.querySelector('.yougo-nav'),
+        document.getElementById('yougo-quick'),
+        document.getElementById('yougo-intro'),
+      ].filter(Boolean);
+
+      function filter() {
+        var word = q.value.trim().toLowerCase();
+        if (!word) {
+          terms.forEach(function (t) {
+            t.hidden = false;
+          });
+          groups.forEach(function (g) {
+            g.hidden = false;
+          });
+          aside.forEach(function (el) {
+            el.hidden = false;
+          });
+          count.hidden = true;
+          empty.hidden = true;
+          return;
+        }
+        var hit = 0;
+        terms.forEach(function (t) {
+          var ok = t.getAttribute('data-search').indexOf(word) >= 0;
+          t.hidden = !ok;
+          if (ok) hit++;
+        });
+        groups.forEach(function (g) {
+          g.hidden = !g.querySelector('.yougo-term:not([hidden])');
+        });
+        aside.forEach(function (el) {
+          el.hidden = true;
+        });
+        count.hidden = false;
+        count.textContent = hit + '語が見つかりました';
+        empty.hidden = hit !== 0;
+      }
+
+      q.addEventListener('input', filter);
+    })();
+  </script>
+
+  <!-- 用語の説明を出典URLごとコピーする（社内資料に貼る人向け） -->
+  <script is:inline>
+    (function () {
+      // クリップボードAPIが使えない環境（古いブラウザ・権限拒否）でも黙って失敗しないようにする
+      function legacyCopy(text) {
+        var ta = document.createElement('textarea');
+        ta.value = text;
+        ta.setAttribute('readonly', '');
+        ta.style.position = 'fixed';
+        ta.style.opacity = '0';
+        document.body.appendChild(ta);
+        ta.select();
+        var ok = false;
+        try {
+          ok = document.execCommand('copy');
+        } catch (e) {}
+        document.body.removeChild(ta);
+        return ok;
+      }
+
+      function copyText(text) {
+        if (navigator.clipboard && window.isSecureContext) {
+          // 権限拒否やフォーカス無しで弾かれたら、古い方式でもう一度試す
+          return navigator.clipboard.writeText(text).catch(function () {
+            return legacyCopy(text) ? Promise.resolve() : Promise.reject();
+          });
+        }
+        return legacyCopy(text) ? Promise.resolve() : Promise.reject();
+      }
+
+      function flash(btn, label, cls) {
+        btn.textContent = label;
+        if (cls) btn.classList.add(cls);
+        setTimeout(function () {
+          btn.textContent = 'コピー';
+          btn.classList.remove('is-copied');
+        }, 2000);
+      }
+
+      document.querySelectorAll('.yougo-copy').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          copyText(btn.getAttribute('data-copy')).then(
+            function () {
+              flash(btn, 'コピーしました ✓', 'is-copied');
+            },
+            function () {
+              flash(btn, 'コピーできません');
+            }
+          );
+        });
+      });
+    })();
+  </script>
+
+  <!-- 30画面ぶんある長いページなので、検索欄まで戻れるようにしておく -->
+  <script is:inline>
+    (function () {
+      var btn = document.getElementById('yougo-totop');
+      var q = document.getElementById('yougo-q');
+      if (!btn || !q) return;
+
+      function toggle() {
+        btn.hidden = window.scrollY < 800;
+      }
+      window.addEventListener('scroll', toggle, { passive: true });
+      toggle();
+
+      btn.addEventListener('click', function () {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        q.focus({ preventScroll: true });
+      });
+    })();
+  </script>
+
+  <CtaSection />
+</Base>
