@@ -86,11 +86,6 @@ draft: false
 
 ---
 
-**「作りたいものが、ちょっと頭に浮かんだ」あなたへ**
+[![LINEで気軽に無料相談。しつこい営業は一切しません。相談してみる](/assets/images/blog/cta-line-soudan.webp)](https://lin.ee/XYH9dqc)
 
-その思いつきを言葉にして送ってもらえれば、それがそのまま無料相談になります。LINEで気軽にどうぞ。しつこい営業は一切しません。
-
-- [LINEで相談する](https://lin.ee/XYH9dqc)
-- [お問い合わせページ](/contact/)
-- [サービス内容（AIシステム開発）を見る](/service/)
-- 第1回「[AIに頼んだらその日のうちにゲームが公開された話](/blog/ai-game-1nichi-koukai/)」から読み直す
+第1回「[AIに頼んだらその日のうちにゲームが公開された話](/blog/ai-game-1nichi-koukai/)」から読み直す。

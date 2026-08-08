@@ -77,10 +77,6 @@ draft: false
 
 ---
 
-**「うちの業務もアプリで良くできる？」と思ったら**
+[![LINEで気軽に無料相談。しつこい営業は一切しません。相談してみる](/assets/images/blog/cta-line-soudan.webp)](https://lin.ee/XYH9dqc)
 
-その質問への答えが、そのまま無料相談です。LINEで気軽に聞いてください。しつこい営業は一切しません。
-
-- [LINEで相談する](https://lin.ee/XYH9dqc)
-- [お問い合わせページ](/contact/)
-- 最終回「[費用ほぼゼロ。非エンジニアがAIでアプリを作るための実践メモ](/blog/ai-app-jissen-memo/)」に続きます
+最終回「[費用ほぼゼロ。非エンジニアがAIでアプリを作るための実践メモ](/blog/ai-app-jissen-memo/)」に続きます。
