@@ -95,5 +95,5 @@ draft: true
 
 そこから先は個別の話なので、LINEで気軽に聞いてください。相談は無料です。しつこい営業は一切しません。
 
-[![LINEで気軽に無料相談。相談だけでも大歓迎、AIの最新情報も届きます。友だち追加する](/assets/images/blog/cta-line-kigaru.webp)](https://lin.ee/XYH9dqc)
+[![LINEで気軽に無料相談。相談だけでも大歓迎、AIの最新情報も届きます。友だち追加する](/assets/images/blog/cta-line-yasashii.webp)](https://lin.ee/XYH9dqc)
 - [お問い合わせページ](/contact/)

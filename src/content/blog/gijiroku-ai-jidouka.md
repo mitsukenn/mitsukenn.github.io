@@ -69,7 +69,7 @@ AIの出力をそのまま配らない。これは鉄則です。固有名詞の
 
 お使いの環境に合った道具選びから、LINEで気軽に聞いてください。相談は無料です。しつこい営業は一切しません。
 
-[![LINEで気軽に無料相談。相談だけでも大歓迎、AIの最新情報も届きます。友だち追加する](/assets/images/blog/cta-line-kigaru.webp)](https://lin.ee/XYH9dqc)
+[![LINEで気軽に無料相談。相談だけでも大歓迎、AIの最新情報も届きます。友だち追加する](/assets/images/blog/cta-line-yasashii.webp)](https://lin.ee/XYH9dqc)
 - [お問い合わせページ](/contact/)
 - [サービス内容（AIシステム開発）を見る](/service/)
 - 「[ChatGPTは使えるのに、仕事が減らない ― 会社が変わらない3つの理由](/blog/chatgpt-shigoto-herananai/)」「[長崎の中小企業こそAIを使うべき3つの理由](/blog/nagasaki-chusho-ai-riyuu/)」もあわせてどうぞ
