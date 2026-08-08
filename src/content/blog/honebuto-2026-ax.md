@@ -70,7 +70,7 @@ IT導入補助金が、今年度から**デジタル化・AI導入補助金**と
 
 補助金が使えるか、何から始めるべきか、会社の状況によって答えが変わります。LINEで気軽に聞いてください。相談は無料、しつこい営業は一切しません。
 
-- [LINEで相談する](https://lin.ee/XYH9dqc)
+[![LINEで気軽に無料相談。しつこい営業は一切しません。相談してみる](/assets/images/blog/cta-line-soudan.webp)](https://lin.ee/XYH9dqc)
 - [お問い合わせページ](/contact/)
 - [サービス内容（AIシステム開発）を見る](/service/)
 - 「[長崎の中小企業こそAIを使うべき3つの理由](/blog/nagasaki-chusho-ai-riyuu/)」もあわせてどうぞ

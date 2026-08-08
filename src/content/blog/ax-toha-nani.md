@@ -81,7 +81,7 @@ AXという言葉自体は数年前からありましたが、今年（2026年�
 
 その現在地の診断こそ、無料相談でいちばんよく聞かれる質問です。LINEで気軽に聞いてください。しつこい営業は一切しません。
 
-- [LINEで相談する](https://lin.ee/XYH9dqc)
+[![LINEで気軽に無料相談。しつこい営業は一切しません。相談してみる](/assets/images/blog/cta-line-soudan.webp)](https://lin.ee/XYH9dqc)
 - [お問い合わせページ](/contact/)
 - [サービス内容（AIシステム開発）を見る](/service/)
 - 「[長崎の中小企業こそAIを使うべき3つの理由](/blog/nagasaki-chusho-ai-riyuu/)」もあわせてどうぞ

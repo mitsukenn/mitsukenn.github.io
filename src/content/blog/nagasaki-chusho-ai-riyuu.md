@@ -92,5 +92,5 @@ AIが得意なのは、まさにこの「本業ではないけれど必要な仕
 
 そこから先は個別の話なので、LINEで気軽に聞いてください。相談は無料です。しつこい営業は一切しません。
 
-- [LINEで相談する](https://lin.ee/XYH9dqc)
+[![LINEで気軽に無料相談。しつこい営業は一切しません。相談してみる](/assets/images/blog/cta-line-soudan.webp)](https://lin.ee/XYH9dqc)
 - [お問い合わせページ](/contact/)

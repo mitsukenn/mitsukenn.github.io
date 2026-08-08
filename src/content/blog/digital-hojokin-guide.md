@@ -38,4 +38,6 @@ heroImage: '/assets/images/blog/thumb-digital-hojokin-guide.webp'
 
 補助金は「知っているか、知らないか」だけで負担が大きく変わります。「うちは対象になる？」の確認だけでもお気軽に。[お問い合わせページ](/contact/)からLINEで無料相談できます。
 
+[![LINEで気軽に無料相談。しつこい営業は一切しません。相談してみる](/assets/images/blog/cta-line-soudan.webp)](https://lin.ee/XYH9dqc)
+
 「[長崎の中小企業こそAIを使うべき3つの理由](/blog/nagasaki-chusho-ai-riyuu/)」もあわせてどうぞ

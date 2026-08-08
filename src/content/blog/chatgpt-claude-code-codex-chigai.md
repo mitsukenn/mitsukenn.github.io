@@ -149,7 +149,7 @@ Claude Pro（月20ドル）に入って、Claude Codeのデスクトップアプ
 
 道具の入れ方より、何を任せるかを決めるほうが難しいところです。そこは一緒に考えられるので、LINEで気軽に聞いてください。相談は無料、しつこい営業は一切しません。
 
-- [LINEで相談する](https://lin.ee/XYH9dqc)
+[![LINEで気軽に無料相談。しつこい営業は一切しません。相談してみる](/assets/images/blog/cta-line-soudan.webp)](https://lin.ee/XYH9dqc)
 - [お問い合わせページ](/contact/)
 - [サービス内容（AIシステム開発）を見る](/service/)
 - ChatGPTがまだの方は「[ChatGPTの始め方](/blog/chatgpt-hajimekata/)」、使っているのに仕事が減らないという方は「[ChatGPTは使えるのに、仕事が減らない](/blog/chatgpt-shigoto-herananai/)」をどうぞ
