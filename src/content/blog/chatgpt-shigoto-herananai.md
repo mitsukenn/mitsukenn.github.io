@@ -69,7 +69,7 @@ ChatGPT、もう普通に使っていますよね。メールの下書き、調�
 
 そこから先は個別の話なので、LINEで気軽に聞いてください。相談は無料です。しつこい営業は一切しません。
 
-[![LINEで気軽に無料相談。しつこい営業は一切しません。相談してみる](/assets/images/blog/cta-line-soudan.webp)](https://lin.ee/XYH9dqc)
+[![LINEで気軽に無料相談。相談だけでも大歓迎、AIの最新情報も届きます。友だち追加する](/assets/images/blog/cta-line-kigaru.webp)](https://lin.ee/XYH9dqc)
 - [お問い合わせページ](/contact/)
 - [サービス内容（AIシステム開発）を見る](/service/)
 - 「[長崎の中小企業こそAIを使うべき3つの理由](/blog/nagasaki-chusho-ai-riyuu/)」もあわせてどうぞ

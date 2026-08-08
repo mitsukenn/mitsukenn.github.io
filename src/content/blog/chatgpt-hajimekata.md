@@ -54,6 +54,6 @@ ChatGPTは無料で始められます。メールアドレスがあれば登録�
 
 「うちの業種だと具体的にどう使えるの？」という段階のご相談こそ歓迎です。[お問い合わせページ](/contact/)から、LINEで気軽に聞いてください。
 
-[![LINEで気軽に無料相談。しつこい営業は一切しません。相談してみる](/assets/images/blog/cta-line-soudan.webp)](https://lin.ee/XYH9dqc)
+[![LINEで気軽に無料相談。相談だけでも大歓迎、AIの最新情報も届きます。友だち追加する](/assets/images/blog/cta-line-kigaru.webp)](https://lin.ee/XYH9dqc)
 
 「[長崎の中小企業こそAIを使うべき3つの理由](/blog/nagasaki-chusho-ai-riyuu/)」もあわせてどうぞ

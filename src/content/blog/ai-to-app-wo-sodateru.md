@@ -77,6 +77,6 @@ draft: false
 
 ---
 
-[![LINEで気軽に無料相談。しつこい営業は一切しません。相談してみる](/assets/images/blog/cta-line-soudan.webp)](https://lin.ee/XYH9dqc)
+[![LINEで気軽に無料相談。相談だけでも大歓迎、AIの最新情報も届きます。友だち追加する](/assets/images/blog/cta-line-kigaru.webp)](https://lin.ee/XYH9dqc)
 
 最終回「[費用ほぼゼロ。非エンジニアがAIでアプリを作るための実践メモ](/blog/ai-app-jissen-memo/)」に続きます。
