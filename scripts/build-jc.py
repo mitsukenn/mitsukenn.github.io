@@ -21,7 +21,8 @@ ROOT = pathlib.Path(__file__).resolve().parents[1]
 SRC = ROOT / "jc-src"
 OUT = ROOT / "public" / "jc"
 
-password = (SRC / "password.txt").read_text(encoding="utf-8").strip()
+# utf-8-sig: PowerShell等がBOM付きで保存しても不可視文字がパスワードに混ざらないように
+password = (SRC / "password.txt").read_text(encoding="utf-8-sig").strip()
 npx = shutil.which("npx") or shutil.which("npx.cmd")
 
 cmd = [
