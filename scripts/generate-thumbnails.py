@@ -68,6 +68,10 @@ ARTICLES = {
     "ai-ni-makaseru-4sou":             ("AIの任せ方 ①", "AIに渡せる仕事、", "渡せない仕事。"),
     "ai-daikou-kara-shikumi-he":       ("AIの任せ方 ②", "その作業、", "来年もやりますか？"),
     "merumaga-ai-de-yomu":             ("情報収集 × AI", "長いメルマガ、", "AIに読ませる。"),
+    "folder-level-5dankai":            ("フォルダ活用 ①", "散らかるのは、", "AIのせいじゃない。"),
+    "folder-name-prompt":              ("フォルダ活用 ②", "フォルダ名は、", "いちばん短い指示書"),
+    "ai-agent-folder-security":        ("フォルダ活用 ③", "AIに見せる範囲、", "どこまで？"),
+    "ai-watashite-abunai-5tsu":        ("AIの安全な使い方", "危ないのは、", "この5つだけ。"),
 }
 
 
