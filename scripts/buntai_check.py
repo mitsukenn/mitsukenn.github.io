@@ -116,6 +116,10 @@ def check(path):
             t = visible(l).strip()
             if re.fullmatch(r"\*\*[^*]+\*\*", t):    # 太字だけの段落＝疑似小見出し
                 subs += 1
+            elif l.startswith("### "):               # ###小見出しも区切り
+                subs += 1
+            elif re.match(r"^\s*(?:\d+\.|-)\s*\*\*[^*]+\*\*", l):
+                subs += 1                            # 太字ラベル付き箇条書き（公式の区切り方）
             if t and not t.startswith(("|", "#")):
                 cur.append(re.sub(r"\*\*|`|<br>", "", t))
     secs.append((head, cur_ln, "".join(cur), subs))
@@ -168,6 +172,19 @@ def check(path):
                 add("警告", ln, f"太字の端が約物「{s[:12]}」（両端は非約物の文字に接する）")
             if m.end() < len(t) and t[m.start()-1:m.start()] in ("」", "）"):
                 add("NG", ln, f"約物に接した太字「{s[:12]}」はMarkdownで解釈されない（生の**が残る）")
+        # 太字の量（2026-08-12確定）。芯の一文を丸ごと1箇所。実物での発火率は6%／8%
+        # 表の行は対象外（表内の太字は構造）。箇条書きの先頭ラベル太字も構造なので数えない
+        if not l.lstrip().startswith("|"):
+            spans = re.findall(r"\*\*([^*]+)\*\*", t)
+            if re.match(r"^\s*(?:\d+\.|-)\s*\*\*", l) and spans:
+                spans = spans[1:]                    # 先頭ラベルを除く
+            if len(spans) >= 2:
+                add("警告", ln, f"太字が1段落に{len(spans)+1}箇所（持ち帰る一文の芯を丸ごと1箇所が基準）"
+                    if re.match(r"^\s*(?:\d+\.|-)\s*\*\*", l) else
+                    f"太字が1段落に{len(spans)}箇所（持ち帰る一文の芯を丸ごと1箇所が基準）")
+            for s in spans:
+                if len(s) <= 6 and re.search(r"[0-9０-９]", s):
+                    add("警告", ln, f"数字だけの太字「{s}」（太字が運ぶのはデータではなくメッセージ）")
 
     # ---- 記事全体 ----
     body_all = "".join(visible(l) for _, l in rows)

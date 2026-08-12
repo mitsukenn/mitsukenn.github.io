@@ -36,7 +36,9 @@ heroImage: '/assets/images/blog/thumb-digital-hojokin-guide.webp'
 
 ## まとめ
 
-補助金は「知っているか、知らないか」だけで負担が大きく変わります。「うちは対象になる？」の確認だけでもお気軽に。[お問い合わせページ](/contact/)からLINEで無料相談できます。
+補助金は「知っているか、知らないか」だけで負担が大きく変わります。
+「うちは対象になる？」の確認だけでもお気軽に。
+[お問い合わせページ](/contact/)からLINEで無料相談できます。
 
 [![LINEで気軽に無料相談。相談だけでも大歓迎、AIの最新情報も届きます。友だち追加する](/assets/images/blog/cta-line-business.webp)](https://lin.ee/XYH9dqc)
 
