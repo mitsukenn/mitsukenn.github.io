@@ -44,6 +44,7 @@ ARTICLES = {
     "line-koushiki-tsukurikata":       ("LINE活用", "お店のLINE、", "スマホだけで作れる"),
     "ai-soudan-aite-erabikata":        ("業者選び", "騙されないための、", "5箇条。"),
     "hp-hoshu-tsukutte-owari":         ("ホームページ", "作って終わりが、", "いちばん損。"),
+    "hp-mitemorau-hoho":               ("ホームページ", "Googleは経験を、", "見ている。"),
     "55sai-chichi-to-ai":              ("実話", "スマホ音痴の父が、", "AIにハマるまで。"),
     "chatgpt-shigoto-herananai":       ("AI活用のツボ", "使えるのに、", "仕事が減らないナゾ"),
     "ai-app-nani-ga-ikura":            ("システム開発", "うちだけの、", "専用AIアプリ。"),
@@ -64,6 +65,9 @@ ARTICLES = {
     "shigyo-hojokin-mirai":            ("士業 × 補助金", "顧問先が1年で、", "30社増えた話。"),
     "ohama-tatami-seisaku-story":      ("制作事例", "畳屋さんのHPが、", "できるまで。"),
     "chatgpt-claude-code-codex-chigai": ("AIツール整理", "ChatGPTの次に、", "触るならこれ。"),
+    "ai-ni-makaseru-4sou":             ("AIの任せ方 ①", "AIに渡せる仕事、", "渡せない仕事。"),
+    "ai-daikou-kara-shikumi-he":       ("AIの任せ方 ②", "その作業、", "来年もやりますか？"),
+    "merumaga-ai-de-yomu":             ("情報収集 × AI", "長いメルマガ、", "AIに読ませる。"),
 }
 
 
