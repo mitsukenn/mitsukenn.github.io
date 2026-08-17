@@ -29,3 +29,48 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
+  # 変更のあった記事URLをIndexNowでBingへ即時通知する（キーは公開仕様なので平文でよい）
+  indexnow:
+    needs: deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Submit changed blog URLs to IndexNow
+        env:
+          BEFORE: ${{ github.event.before }}
+        run: |
+          set -e
+          KEY="be666915ca4f89b4ad88f7b934daa9ac"
+          HOST="machino-ai.jp"
+          # push前のコミットが取れない場合（初push・force push）は直前1コミットと比較
+          if [ -z "$BEFORE" ] || echo "$BEFORE" | grep -q '^0\{40\}$' || ! git cat-file -e "$BEFORE" 2>/dev/null; then
+            BASE="HEAD~1"
+          else
+            BASE="$BEFORE"
+          fi
+          URLS=""
+          for f in $(git diff --name-only --diff-filter=AM "$BASE" HEAD -- 'src/content/blog/*.md'); do
+            [ -f "$f" ] || continue
+            # draft記事は通知しない
+            if head -20 "$f" | grep -Eq '^draft:[[:space:]]*true'; then continue; fi
+            slug=$(basename "$f" .md)
+            URLS="$URLS\"https://$HOST/blog/$slug/\","
+          done
+          if [ -z "$URLS" ]; then
+            echo "No published article changes. Skipping IndexNow."
+            exit 0
+          fi
+          # 記事が変わればトップと一覧も変わるので一緒に通知
+          URLS="$URLS\"https://$HOST/\",\"https://$HOST/blog/\""
+          BODY="{\"host\":\"$HOST\",\"key\":\"$KEY\",\"urlList\":[$URLS]}"
+          echo "Submitting: $BODY"
+          HTTP_CODE=$(curl -s -o /tmp/indexnow_res.txt -w "%{http_code}" -X POST "https://api.indexnow.org/indexnow" \
+            -H "Content-Type: application/json; charset=utf-8" -d "$BODY")
+          cat /tmp/indexnow_res.txt
+          echo "IndexNow HTTP $HTTP_CODE"
+          # 200=受理 202=受理(キー検証待ち)。それ以外は失敗として表示
+          if [ "$HTTP_CODE" != "200" ] && [ "$HTTP_CODE" != "202" ]; then exit 1; fi
