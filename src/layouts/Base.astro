@@ -22,6 +22,7 @@ const localBusiness = {
   '@context': 'https://schema.org',
   '@type': 'LocalBusiness',
   name: SITE.name,
+  alternateName: 'まちのAI',
   description: SITE.description,
   url: Astro.site?.toString(),
   address: {
@@ -31,6 +32,15 @@ const localBusiness = {
   },
   areaServed: '長崎県',
   knowsAbout: ['AI活用支援', 'AIセミナー', '生成AI研修', 'ホームページ制作', 'Web保守'],
+};
+
+// サイト名の構造化データ。検索エンジンに「まちのAI＝このサイトの略称」を機械的に伝える
+const webSite = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: SITE.name,
+  alternateName: 'まちのAI',
+  url: Astro.site?.toString(),
 };
 ---
 
@@ -78,6 +88,7 @@ const localBusiness = {
     />
 
     <script type="application/ld+json" set:html={JSON.stringify(localBusiness)} />
+    <script type="application/ld+json" set:html={JSON.stringify(webSite)} />
   </head>
   <body>
     <Header />
