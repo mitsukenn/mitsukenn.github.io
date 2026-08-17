@@ -1,6 +1,6 @@
 ---
-title: '国がAXを国策にした ― 「骨太の方針2026」を中小企業目線で読む'
-description: '骨太の方針2026でAXが国の看板になりました。地域AXや補助金の衣替えなど、小さな会社に関係あるポイントを5つに絞って読み解きます。'
+title: '骨太の方針2026とAI ― 国がAXを国策にした中身を中小企業目線で読む'
+description: '骨太の方針2026でAI活用（AX）が国の看板になりました。地域AXや補助金の衣替えなど、小さな会社に関係あるポイントを5つに絞って読み解きます。'
 pubDate: 2026-07-29
 category: news
 heroImage: '/assets/images/blog/thumb-honebuto-2026-ax.webp'
