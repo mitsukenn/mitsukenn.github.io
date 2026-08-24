@@ -37,6 +37,8 @@ PALETTES = {
 }
 
 ARTICLES = {
+    "nagasaki-ai-hojokin-junban":      ("長崎県の補助金", "長崎のAI補助金、", "結局この順番。"),
+    "nagasaki-hojokin-calendar":       ("長崎県の補助金", "いま出せるもの、", "毎月更新。"),
     "nagasaki-chusho-ai-riyuu":        ("長崎 × AI活用", "人が来ないなら、", "仕事を軽くする。"),
     "chatgpt-hajimekata":              ("ChatGPT入門", "10分で始める、", "ChatGPT。"),
     "jimu-hanbun-checklist15":         ("事務効率化", "事務仕事、", "AIで半分に。"),
