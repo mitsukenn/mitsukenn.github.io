@@ -52,6 +52,15 @@ HEADER = """# まちのAI屋さん
 - 制作実績: https://machino-ai.jp/works/
 - よくある質問: https://machino-ai.jp/faq/
 - コラム一覧: https://machino-ai.jp/blog/
+- AI用語辞典（全100語）: https://machino-ai.jp/ai-yougo/
+
+## AI用語辞典（https://machino-ai.jp/ai-yougo/）
+
+2026年時点の生成AI用語100語を、中小企業の経営者・現場責任者の目線で1ページにまとめた用語集。8カテゴリ（きほん・しくみ／使いこなし・プロンプト／自社のデータとつなぐ／AIエージェント／導入と運用／画像・動画・音声／リスクと品質／制度・社会・ビジネス）に分類。
+
+各用語には固有のアンカーURLがあり（例: https://machino-ai.jp/ai-yougo/#mcp ）、用語単位で参照・引用できる。ページ全体に DefinedTermSet、各用語に DefinedTerm の構造化データを付与している。
+
+各用語は「◯◯とは、〜のことです。」の定義文と、必要に応じて「中小企業にとってどういう意味を持つか」の1文で構成。専門用語を使わずに書いている。年1回、全体を見直して更新する。
 """
 
 FOOTER = """

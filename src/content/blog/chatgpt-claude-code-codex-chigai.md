@@ -1,6 +1,6 @@
 ---
-title: 'Claude Codeって結局何？ChatGPT・Claude・Codexとの違いを1枚で整理'
-description: 'ChatGPTを毎日使っているお客様から「Claude Codeをやってみたい」と言われたので、4つの立ち位置と、追加課金なしで試せる道を整理しました。'
+title: 'Claude CodeとCodexはどっちがいい？ChatGPT・Claudeとの違いも比較'
+description: 'ChatGPTを毎日使っているお客様から「Claude Codeをやってみたい」と言われたので、4つの違いの比較と、どっちから試すかの決め方を1枚にまとめました。'
 pubDate: 2026-08-02
 category: tutorial
 heroImage: '/assets/images/blog/thumb-chatgpt-claude-code-codex-chigai.webp'
@@ -11,6 +11,8 @@ draft: false
 <!-- 文体ルール: ①AIっぽい整いすぎた文章NG、カジュアル敬語 ②偉そうNG、教えるのではなく共有 ③演出フレーズNG ④小見出しは「## ① 短いラベル」形式の連番 ⑤コロンでのラベル書きNG -->
 <!-- 事実確認（2026-08-02時点・Web検索で確認）: Codex=ChatGPTの有料プラン（Plus月20ドル〜）に含まれる／2026-04-02から利用量の数え方がトークンベースに変更／入口はデスクトップアプリ・CLI・IDE拡張・クラウドの4つ。Claude Code=無料プラン不可、Claude Pro月20ドル〜／2026-07-10にデスクトップ版へブラウザ内蔵。料金は変わりやすいので更新時に公式で再確認 -->
 <!-- TODO: がっきーの実体験を追記（このお客様のその後、実際にCodexを触ってもらった感想など） -->
+<!-- 2026-08-24 タイトル変更: 旧「Claude Codeって結局何？ChatGPT・Claude・Codexとの違いを1枚で整理」→ GSCで「claude code chatgpt codex」4位に表示されていたため、実際に検索される言い回し（どっち・違い・比較）に寄せた。URLは変えない -->
+
 
 先に中身を1枚にまとめました。ChatGPTに月20ドル払っている方は、④の料金だけでも見てもらえると得します。
 

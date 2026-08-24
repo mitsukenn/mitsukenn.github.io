@@ -50,6 +50,16 @@ const webSite = {
     <!-- Google tag (gtag.js) -->
     <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-740PJ5K47G"></script>
     <script is:inline>
+      // 内部トラフィックの除外。/?noga=1 を一度開いたブラウザは以後計測しない（/?noga=0 で解除）。
+      // 本番ドメイン以外（ローカル確認・github.io）も計測しない
+      try {
+        var noga = new URLSearchParams(location.search).get('noga');
+        if (noga === '1') localStorage.setItem('machino-ai-noga', '1');
+        if (noga === '0') localStorage.removeItem('machino-ai-noga');
+        if (localStorage.getItem('machino-ai-noga') === '1' || location.hostname !== 'machino-ai.jp') {
+          window['ga-disable-G-740PJ5K47G'] = true;
+        }
+      } catch (e) {}
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
