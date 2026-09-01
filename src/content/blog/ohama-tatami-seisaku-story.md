@@ -1,7 +1,7 @@
 ---
 title: '大濱畳店さまのホームページができるまで — 長崎の畳屋さんとの二人三脚レポート'
 description: '長崎市の畳屋・大濱畳店さまのホームページ制作を、最初の相談から公開後の保守まで5つのステップでレポートします。'
-pubDate: 2026-07-21
+pubDate: 2026-08-19
 category: case
 heroImage: '/assets/images/blog/thumb-ohama-tatami-seisaku-story.webp'
 draft: true

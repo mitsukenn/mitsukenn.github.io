@@ -37,6 +37,7 @@ PALETTES = {
 }
 
 ARTICLES = {
+    "nakahira-taxi-story":             ("長崎の制作実績", "知らない人から、", "電話が鳴った。"),
     "nagasaki-ai-hojokin-junban":      ("長崎県の補助金", "長崎のAI補助金、", "結局この順番。"),
     "nagasaki-hojokin-calendar":       ("長崎県の補助金", "いま出せるもの、", "毎月更新。"),
     "nagasaki-chusho-ai-riyuu":        ("長崎 × AI活用", "人が来ないなら、", "仕事を軽くする。"),
