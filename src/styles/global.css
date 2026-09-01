@@ -8,6 +8,8 @@
   --accent: #0e8fbe;
   --accent-soft: #e4f5fc;
   --accent-dark: #0a6e93;
+  /* ボタン（塗り）のホバー用。--accent-dark をさらに一段濃くしたもの */
+  --accent-deeper: #085d7c;
 
   /* --- 旧A案: 温かみのあるオレンジ（比較用に保管）
   --accent: #e8590c;
@@ -27,6 +29,11 @@
   --bg-soft: #f8f6f2;
   --border: #e6e2db;
 
+  /* 演出の速さ。1 が元の速さ、2 で全体が2倍ゆっくりになる。
+     出方の調整はこの数字ひとつでできる（各アニメの秒数は触らなくていい） */
+  --motion-scale: 1.5;
+  /* ロゴマークの透かしの濃さ。0.08 を超えると本文の読みやすさに響く */
+  --logo-mark-opacity: 0.05;
   --radius: 16px;
   --radius-sm: 10px;
   --shadow: 0 4px 20px rgba(60, 50, 40, 0.08);
@@ -134,18 +141,18 @@ a {
 }
 
 .btn--accent {
-  background: var(--accent);
+  background: var(--accent-dark);
   color: #fff;
 }
 
 .btn--accent:hover {
-  background: var(--accent-dark);
+  background: var(--accent-deeper);
 }
 
 .btn--ghost {
   background: #fff;
-  color: var(--accent);
-  border: 2px solid var(--accent);
+  color: var(--accent-dark);
+  border: 2px solid var(--accent-dark);
   box-shadow: none;
 }
 
@@ -230,6 +237,46 @@ a {
     transparent 2px 14px
   );
   opacity: 0.1;
+}
+
+/* ---------- ロゴマークの透かし（2026-08-19 追加） ----------
+   小さいマークを一面に敷くのではなく、大きいものを1セクションに2つだけ置く。
+   セクション自身の ::before / ::after は背景あしらい（deco-parts.css）が使っているので、
+   中の .container の擬似要素を借りている。
+
+   濃さは :root の --logo-mark-opacity 1箇所で決まる。
+   使い方: 敷きたいセクションに .logo-mark-bg を足すだけ */
+.logo-mark-bg > .container {
+  position: relative;
+}
+
+.logo-mark-bg > .container::before,
+.logo-mark-bg > .container::after {
+  content: '';
+  position: absolute;
+  /* 本文より後ろ、セクションの背景より前 */
+  z-index: -1;
+  background: url('/assets/images/logo-mark.png') no-repeat center / contain;
+  opacity: var(--logo-mark-opacity, 0.05);
+  pointer-events: none;
+}
+
+/* 置き場所は右上と左下。
+   線画のあしらい（deco-parts.css）が左上と右下を使っているので、空いている対角に入れる。
+   はみ出したぶんは .dp の overflow: hidden で切れる */
+.logo-mark-bg > .container::before {
+  width: clamp(190px, 26vw, 330px);
+  height: clamp(190px, 26vw, 330px);
+  top: -26px;
+  right: clamp(-150px, -10vw, -70px);
+}
+
+/* 左下はひと回り小さく。同じ大きさで2つ置くと壁紙に見えるので変化をつける */
+.logo-mark-bg > .container::after {
+  width: clamp(150px, 20vw, 260px);
+  height: clamp(150px, 20vw, 260px);
+  bottom: -16px;
+  left: clamp(-120px, -8vw, -50px);
 }
 
 /* 下層ページ見出しは共通でドット装飾 */
@@ -339,6 +386,17 @@ a {
   margin-left: 6px;
 }
 
+/* .header__nav a の色指定に負けて文字が黒くなる（＝地色と2.0:1しかない）ため、
+   詳細度を1つ上げて塗りボタン本来の白文字・ホバーに戻す */
+.header__nav a.header__cta {
+  color: #fff;
+}
+
+.header__nav a.header__cta:hover {
+  background: var(--accent-deeper);
+  color: #fff;
+}
+
 @media (max-width: 720px) {
   .header__inner {
     flex-wrap: wrap;
@@ -355,70 +413,132 @@ a {
   }
 }
 
-/* ---------- ヒーロー ---------- */
-.hero {
-  /* 長崎の風景をうっすら敷く（上に白系オーバーレイで可読性を確保） */
-  background:
-    linear-gradient(180deg, rgba(228, 245, 252, 0.9) 0%, rgba(255, 255, 255, 0.93) 100%),
-    url('/assets/images/bg-nagasaki.png') center 62% / cover no-repeat;
-  padding: 80px 0 72px;
-}
-
-.hero__inner {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 24px;
-  max-width: 760px;
-  margin: 0 auto;
-  text-align: center;
-}
-
-.hero__cta {
+/* ---------- ファーストビュー（大浜式スライド・2026-08-19） ----------
+   背景だけが約4.5秒でクロスフェードし、キャッチコピーとボタンは動かない。
+   スライドの切替は index.astro 末尾のスクリプト。画像を差し替えるときは
+   public/assets/images/fv-slide-*.webp を置き換えるだけ */
+.fv {
+  position: relative;
+  /* 標準よりちょい大きめ・約500px（2026-08-24 オーナー指示）。下の「お悩み」の頭は見えるまま */
+  height: 56vh;
+  min-height: 500px;
+  max-height: 560px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
   justify-content: center;
 }
 
-/* --- バナー主役のFV --- */
-.hero--banner {
-  padding: 28px 0 48px;
+.fv__slide {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  /* フェードは透明度だけの変化なので、動きを減らす設定でも止めない */
+  transition: opacity 1.2s ease-in-out;
 }
 
-.hero--banner .container {
+.fv__slide.is-on {
+  opacity: 1;
+}
+
+/* 白文字を読ませるための暗めフィルター。強さはこの2つの数値で調整する */
+.fv__slide::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(20, 40, 60, 0.52) 0%, rgba(20, 40, 60, 0.34) 100%);
+}
+
+.fv__inner {
+  position: relative;
+  z-index: 2;
   text-align: center;
+  color: #fff;
+  max-width: 760px;
+  padding: 0 20px;
 }
 
-/* CTAボタンがファーストビューに収まる高さに抑える */
-.hero-banner {
-  display: block;
-  max-width: 800px;
-  margin: 0 auto;
-  border-radius: var(--radius);
-  overflow: hidden;
-  box-shadow: var(--shadow);
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
+.fv__inner h1 {
+  font-size: clamp(26px, 3.2vw, 40px);
+  line-height: 1.45;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-shadow: 0 2px 14px rgba(0, 20, 40, 0.35);
 }
 
-.hero-banner:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 28px rgba(60, 50, 40, 0.14);
+.fv__sub {
+  /* 3行を同じマスに重ねて、スライドと同じ番号の1行だけをフェードで見せる。
+     grid重ねなので、いちばん長い行に合わせて高さが決まり、切替でガタつかない */
+  display: grid;
+  font-size: 15px;
+  margin: 12px 0 20px;
+  color: rgba(255, 255, 255, 0.92);
 }
 
-.hero-banner img {
-  width: 100%;
-  height: auto;
+.fv__sub-line {
+  grid-area: 1 / 1;
+  opacity: 0;
+  transition: opacity 1.2s ease-in-out;
 }
 
-.hero--banner .hero__sub {
-  font-size: 16px;
-  color: var(--text-weak);
-  margin: 22px auto 20px;
-  max-width: 640px;
+.fv__sub-line.is-on {
+  opacity: 1;
 }
 
-.hero--banner .hero__cta {
+.fv__cta {
   display: flex;
   gap: 14px;
   flex-wrap: wrap;
   justify-content: center;
+}
+
+/* 写真の上に置く白フチのボタン（通常の btn--ghost は白背景なのでここでは使わない） */
+.btn--fv-ghost {
+  background: transparent;
+  color: #fff;
+  border: 2px solid rgba(255, 255, 255, 0.85);
+  box-shadow: none;
+}
+
+.btn--fv-ghost:hover {
+  background: rgba(255, 255, 255, 0.16);
+}
+
+.fv__dots {
+  position: absolute;
+  bottom: 16px;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+.fv__dots button {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  background: rgba(255, 255, 255, 0.45);
+  transition: transform 0.3s, background 0.3s;
+}
+
+.fv__dots button.is-on {
+  background: #fff;
+  transform: scale(1.35);
+}
+
+@media (max-width: 800px) {
+  .fv {
+    /* スマホは横幅が狭いぶん、少し高くして絵を見せる */
+    height: 60vh;
+    min-height: 420px;
+  }
 }
 
 /* スクリーンリーダー・SEO用（画面には出さない） */
@@ -432,20 +552,6 @@ a {
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
   border: 0;
-}
-
-@media (max-width: 720px) {
-  .hero--banner {
-    padding: 24px 0 44px;
-  }
-  .hero-banner {
-    border-radius: var(--radius-sm);
-  }
-  .hero--banner .hero__sub {
-    font-size: 15px;
-    text-align: left;
-    margin-top: 22px;
-  }
 }
 
 .hero__copy h1 {
@@ -559,7 +665,7 @@ a {
 
 .point-card__label {
   display: inline-block;
-  background: var(--accent);
+  background: var(--accent-dark);
   color: #fff;
   font-size: 12px;
   font-weight: 700;
@@ -610,7 +716,7 @@ a {
 
 .service-featured__tag {
   display: inline-block;
-  background: var(--accent);
+  background: var(--accent-dark);
   color: #fff;
   font-size: 12px;
   font-weight: 700;
@@ -862,6 +968,12 @@ a {
 }
 
 /* ---------- ブログカード ---------- */
+.blog-list__title {
+  text-align: center;
+  font-size: 18px;
+  margin: 56px 0 18px;
+}
+
 .blog-list {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -918,6 +1030,11 @@ a {
 @media (max-width: 800px) {
   .blog-list {
     grid-template-columns: 1fr;
+  }
+
+  /* トップの新着はスマホでは3件まで（縦に長くなりすぎるため） */
+  .blog-list--latest .blog-card:nth-child(n + 4) {
+    display: none;
   }
 }
 
@@ -1224,7 +1341,7 @@ a {
   width: 44px;
   height: 44px;
   border-radius: 50%;
-  background: var(--accent);
+  background: var(--accent-dark);
   color: #fff;
   font-size: 20px;
   font-weight: 700;
@@ -1686,7 +1803,7 @@ a {
 /* ---------- トップページ: 人気記事ベスト5 ---------- */
 .ranking {
   max-width: 720px;
-  margin: 40px auto 0;
+  margin: 0 auto;
 }
 
 .ranking__title {
@@ -1941,7 +2058,7 @@ a {
   font-size: 10px;
   font-weight: 700;
   color: #fff;
-  background: var(--accent);
+  background: var(--accent-dark);
   border-radius: 999px;
   white-space: nowrap;
 }
@@ -2048,7 +2165,7 @@ a {
   font-size: 11px;
   font-weight: 700;
   color: #fff;
-  background: var(--accent);
+  background: var(--accent-dark);
   border-radius: 999px;
 }
 
@@ -2146,8 +2263,8 @@ a {
 
 .yougo-copy.is-copied {
   color: #fff;
-  background: var(--accent);
-  border-color: var(--accent);
+  background: var(--accent-dark);
+  border-color: var(--accent-dark);
 }
 
 /* 用語辞典: 検索欄に戻る */
@@ -2161,13 +2278,204 @@ a {
   font-size: 13px;
   font-weight: 700;
   color: #fff;
-  background: var(--accent);
+  background: var(--accent-dark);
   border: none;
   border-radius: 999px;
-  box-shadow: 0 4px 16px rgba(14, 143, 190, 0.4);
+  box-shadow: 0 4px 16px rgba(10, 110, 147, 0.4);
   cursor: pointer;
 }
 
 .yougo-totop:hover {
-  background: var(--accent-dark);
+  background: var(--accent-deeper);
+}
+
+/* ============================================
+   スクロール演出（2026-08-10 追加）
+   IntersectionObserver で .reveal → .is-revealed を付けるだけ。
+   隠すのは html.js が付いている＝JSが動く環境のみ（noscript でも本文は必ず見える）。
+   ============================================ */
+.js .reveal {
+  opacity: 0;
+}
+
+.js .reveal.is-revealed {
+  opacity: 1;
+  /* fill-mode は backwards（both ではない）。
+     終了後は通常のスタイルに戻すので、カードの :hover の transform が生き残る */
+  /* 速さの調整はこの1.2sだけ触ればOK（大きくするほどゆっくり出る） */
+  animation: reveal-up calc(1.2s * var(--motion-scale, 1)) cubic-bezier(0.22, 0.61, 0.36, 1) backwards;
+  animation-delay: calc(var(--reveal-delay, 0s) * var(--motion-scale, 1));
+}
+
+/* 見出し・文章まわり。
+   ポイントは opacity を35%地点で出し切ること。
+   透明なまま動き終わると「最初からそこに在った」ようにしか見えないので、
+   はっきり見えている状態で、まだ動いている時間を作る */
+@keyframes reveal-up {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  35% {
+    opacity: 1;
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* カード類は大きめに浮き上がらせる。
+   白いカードが白い背景に乗っているため輪郭が見えにくい＝移動量で見せる */
+.js .reveal--card.is-revealed {
+  animation-name: reveal-card;
+  animation-duration: calc(0.9s * var(--motion-scale, 1));
+  /* 終点を少し行き過ぎてから戻る（GSAPの back.out 相当）。
+     カードが「置かれた」感じになり、ただのフェードとはっきり差が出る */
+  animation-timing-function: cubic-bezier(0.24, 1.32, 0.5, 1);
+}
+
+@keyframes reveal-card {
+  from {
+    opacity: 0;
+    transform: translateY(70px) scale(0.9);
+  }
+  35% {
+    opacity: 1;
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* ---- 左右から差し込む（プロフィール・主力サービスなど、横並びのブロック用） ---- */
+.js .reveal--left.is-revealed {
+  animation-name: reveal-left;
+  animation-duration: calc(1s * var(--motion-scale, 1));
+}
+
+.js .reveal--right.is-revealed {
+  animation-name: reveal-right;
+  animation-duration: calc(1s * var(--motion-scale, 1));
+}
+
+@keyframes reveal-left {
+  from {
+    opacity: 0;
+    transform: translateX(-56px);
+  }
+  40% {
+    opacity: 1;
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes reveal-right {
+  from {
+    opacity: 0;
+    transform: translateX(56px);
+  }
+  40% {
+    opacity: 1;
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* 縦積みになる幅では横移動は使わない（画面の外へはみ出して見えるため） */
+@media (max-width: 800px) {
+  .js .reveal--left.is-revealed,
+  .js .reveal--right.is-revealed {
+    animation-name: reveal-up;
+  }
+}
+
+/* ---- 見出しは2段階。ラベルが先に出て、H2が後から持ち上がる ---- */
+.js .reveal--title.is-revealed {
+  /* 箱そのものは動かさず、中の2つを別々に動かす */
+  opacity: 1;
+  animation: none;
+}
+
+.js .reveal--title .section-title__sub,
+.js .reveal--title h2 {
+  opacity: 0;
+}
+
+.js .reveal--title.is-revealed .section-title__sub {
+  opacity: 1;
+  animation: reveal-up calc(0.8s * var(--motion-scale, 1)) cubic-bezier(0.22, 0.61, 0.36, 1) backwards;
+  animation-delay: calc(var(--reveal-delay, 0s) * var(--motion-scale, 1));
+}
+
+.js .reveal--title.is-revealed h2 {
+  opacity: 1;
+  animation: reveal-title calc(1s * var(--motion-scale, 1)) cubic-bezier(0.22, 0.61, 0.36, 1) backwards;
+  animation-delay: calc((var(--reveal-delay, 0s) + 0.14s) * var(--motion-scale, 1));
+}
+
+@keyframes reveal-title {
+  from {
+    opacity: 0;
+    transform: translateY(34px);
+  }
+  40% {
+    opacity: 1;
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* 動きが苦手な人・OS側でアニメーションを切っている人向け。
+   ここを「全部 animation: none」にすると、Windowsの「アニメーション効果」をOFFにしている
+   ふつうの来訪者にはサイトが完全に静止して見える（体感でいちばん多い外し方）。
+   目が回る原因は移動と拡大縮小なので、それだけをやめて、
+   薄く出るフェードは残す。ループし続ける動き（スクロールの点）は完全に止める */
+@keyframes reveal-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .js .reveal.is-revealed,
+  .js .reveal--title.is-revealed .section-title__sub,
+  .js .reveal--title.is-revealed h2 {
+    opacity: 1;
+    animation: reveal-fade 0.5s ease backwards;
+  }
+}
+
+@media print {
+  .js .reveal,
+  .js .reveal--title .section-title__sub,
+  .js .reveal--title h2 {
+    opacity: 1 !important;
+  }
+  .js .reveal.is-revealed,
+  .js .reveal--title.is-revealed .section-title__sub,
+  .js .reveal--title.is-revealed h2 {
+    animation: none !important;
+  }
+}
+
+/* スクロールし始めたらヘッダーに影を落として、浮いていることを伝える */
+.header {
+  transition: box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+.header.is-scrolled {
+  background: rgba(255, 255, 255, 0.98);
+  box-shadow: 0 2px 14px rgba(60, 50, 40, 0.12);
 }

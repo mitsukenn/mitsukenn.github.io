@@ -5,9 +5,38 @@ import { SITE, CATEGORIES, RANKING } from '../config';
 import { getCollection } from 'astro:content';
 
 const allPosts = await getCollection('blog', ({ data }) => !data.draft);
+const totalPosts = allPosts.length;
+
+// 連載ごとの最新公開日（新しい回が出たら第1回を新着の先頭に押し上げるために使う）
+const seriesLatest = new Map<string, number>();
+for (const { data } of allPosts) {
+  if (!data.series) continue;
+  seriesLatest.set(
+    data.series,
+    Math.max(seriesLatest.get(data.series) ?? 0, data.pubDate.valueOf())
+  );
+}
+const sortKey = (data: { series?: string; pubDate: Date }) =>
+  (data.series && seriesLatest.get(data.series)) || data.pubDate.valueOf();
+
+// 新着コラム: 連載ものは第1回だけを出す（2回目以降が並んで「この連載しかない」に見えるのを防ぐ）
+const seenSeries = new Set<string>();
 const posts = [...allPosts]
-  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
-  .slice(0, 3);
+  .sort((a, b) => (a.data.seriesOrder ?? 1) - (b.data.seriesOrder ?? 1))
+  .filter(({ data }) => {
+    if (!data.series) return true;
+    if (data.seriesOrder && data.seriesOrder > 1) return false;
+    if (seenSeries.has(data.series)) return false;
+    seenSeries.add(data.series);
+    return true;
+  })
+  .sort((a, b) => sortKey(b.data) - sortKey(a.data))
+  .slice(0, 6)
+  .map((post) => {
+    const latest = sortKey(post.data);
+    // 連載に新しい回が出ている場合は、カードの日付を「◯◯ 更新」に差し替える
+    return { post, updated: latest > post.data.pubDate.valueOf() ? new Date(latest) : null };
+  });
 
 // 人気記事ベスト5（config.ts の RANKING 順）
 const rankedPosts = RANKING.map((slug) => allPosts.find((p) => p.id === slug)).filter(
@@ -37,30 +66,80 @@ const works = [
 ---
 
 <Base>
-  <!-- 1. ファーストビュー（キャッチコピーはバナー画像内。h1はSEO・読み上げ用に保持） -->
-  <section class="hero hero--banner">
-    <div class="container">
-      <h1 class="visually-hidden">{SITE.catchcopy}</h1>
-      <!-- バナー内の「無料相談 受付中」は画像なので、バナー全体を相談ページへのリンクにする -->
-      <a href="/contact/" class="hero-banner">
-        <img
-          src="/assets/images/hero-banner.webp"
-          alt={`${SITE.catchcopy} 無料相談 受付中｜まちのAI屋さん`}
-          width="1200"
-          height="675"
-          fetchpriority="high"
-        />
-      </a>
-      <p class="hero__sub">{SITE.subcopy}</p>
-      <div class="hero__cta">
+  <!-- 1. ファーストビュー（大浜式スライド・2026-08-19）
+       背景3枚が約4.5秒でクロスフェードし、キャッチコピーとボタンは動かない。
+       h1が「本物の文字」になったので、旧visually-hidden方式は廃止。
+       画像の差し替えは public/assets/images/fv-slide-*.webp を置き換えるだけ -->
+  <section class="fv">
+    <div
+      class="fv__slide is-on"
+      style="background-image: url('/assets/images/fv-slide-1.webp')"
+    >
+    </div>
+    <div class="fv__slide" style="background-image: url('/assets/images/fv-slide-2.webp')"></div>
+    <div class="fv__slide" style="background-image: url('/assets/images/fv-slide-3.webp')"></div>
+    <div class="fv__inner">
+      <h1 set:html={SITE.catchcopy.replace('、AI', '、<br />AI')} />
+      <!-- 説明文はスライドに連動して1行だけ切り替わる。
+           1行目は従来のsubcopy＝JSが動かない環境・検索エンジンにはこれが見える -->
+      <p class="fv__sub">
+        <span class="fv__sub-line is-on">{SITE.subcopy}</span>
+        <span class="fv__sub-line">かしこまった準備はいりません。雑談レベルのご相談から一緒に考えます。</span>
+        <span class="fv__sub-line">文章づくりの時短で終わらせず、あなたの会社専用の「仕組み」に仕立てます。</span>
+      </p>
+      <div class="fv__cta">
         <a href="/contact/" class="btn btn--accent">無料で相談する</a>
-        <a href="#cases" class="btn btn--ghost">活用事例を見る</a>
+        <a href="#cases" class="btn btn--fv-ghost">活用事例を見る</a>
       </div>
+    </div>
+    <!-- スライドの現在地。押すと手動で切り替えられる -->
+    <div class="fv__dots">
+      <button type="button" class="is-on" aria-label="スライド1"></button>
+      <button type="button" aria-label="スライド2"></button>
+      <button type="button" aria-label="スライド3"></button>
     </div>
   </section>
 
+  <!-- ファーストビューのスライド切替 -->
+  <script is:inline>
+    (function () {
+      var slides = document.querySelectorAll('.fv__slide');
+      var subs = document.querySelectorAll('.fv__sub-line');
+      var dots = document.querySelectorAll('.fv__dots button');
+      if (!slides.length) return;
+      var i = 0;
+      var timer;
+      function show(n) {
+        i = n;
+        slides.forEach(function (s, k) {
+          s.classList.toggle('is-on', k === n);
+        });
+        subs.forEach(function (t, k) {
+          t.classList.toggle('is-on', k === n);
+        });
+        dots.forEach(function (d, k) {
+          d.classList.toggle('is-on', k === n);
+        });
+      }
+      function start() {
+        timer = setInterval(function () {
+          // 裏のタブに回っている間は切り替えない（戻ったときに続きから）
+          if (!document.hidden) show((i + 1) % slides.length);
+        }, 6000);
+      }
+      dots.forEach(function (d, k) {
+        d.addEventListener('click', function () {
+          clearInterval(timer);
+          show(k);
+          start();
+        });
+      });
+      start();
+    })();
+  </script>
+
   <!-- 2. こんなお悩みありませんか（共感ファースト） -->
-  <section class="section dp dp--frame dp--diagonal">
+  <section class="section dp dp--frame dp--diagonal logo-mark-bg">
     <div class="container">
       <div class="section-title">
         <span class="section-title__sub">お悩み</span>
@@ -153,7 +232,7 @@ const works = [
   </section>
 
   <!-- 3. ごあいさつ（顔=安心を先に見せる） -->
-  <section class="section dp dp--wire dp--wave">
+  <section class="section dp dp--wire dp--wave logo-mark-bg">
     <div class="container">
       <div class="section-title">
         <span class="section-title__sub">ごあいさつ</span>
@@ -208,7 +287,7 @@ const works = [
   </section>
 
   <!-- 4. サービス（主力=AIシステム開発） -->
-  <section class="section dp dp--frame dp--scale" id="service">
+  <section class="section dp dp--frame dp--scale logo-mark-bg" id="service">
     <div class="container">
       <div class="section-title">
         <span class="section-title__sub">できること</span>
@@ -366,20 +445,6 @@ const works = [
             <span class="section-title__sub">読みもの</span>
             <h2>コラム・お知らせ</h2>
           </div>
-          <div class="blog-list">
-            {posts.map((post) => (
-              <a href={`/blog/${post.id}/`} class="blog-card">
-                {post.data.heroImage && (
-                  <img class="blog-card__thumb" src={post.data.heroImage} alt="" loading="lazy" />
-                )}
-                <span class="blog-card__cat">{CATEGORIES[post.data.category]}</span>
-                <h3>{post.data.title}</h3>
-                <p>{post.data.description}</p>
-                <time datetime={post.data.pubDate.toISOString()}>{fmt(post.data.pubDate)}</time>
-              </a>
-            ))}
-          </div>
-
           {rankedPosts.length > 0 && (
             <div class="ranking">
               <h3 class="ranking__title">よく読まれている記事 ベスト5</h3>
@@ -407,8 +472,28 @@ const works = [
             </div>
           )}
 
+          <h3 class="blog-list__title">新着コラム</h3>
+          <div class="blog-list blog-list--latest">
+            {posts.map(({ post, updated }) => (
+              <a href={`/blog/${post.id}/`} class="blog-card">
+                {post.data.heroImage && (
+                  <img class="blog-card__thumb" src={post.data.heroImage} alt="" loading="lazy" />
+                )}
+                <span class="blog-card__cat">{CATEGORIES[post.data.category]}</span>
+                <h3>{post.data.title}</h3>
+                <p>{post.data.description}</p>
+                <time datetime={(updated ?? post.data.pubDate).toISOString()}>
+                  {fmt(updated ?? post.data.pubDate)}
+                  {updated && ' 連載更新'}
+                </time>
+              </a>
+            ))}
+          </div>
+
           <p class="text-center mt-32">
-            <a href="/blog/" class="btn btn--ghost btn--sm">コラム一覧を見る</a>
+            <a href="/blog/" class="btn btn--ghost btn--sm">
+              コラム一覧を見る（全{totalPosts}本）
+            </a>
           </p>
         </div>
       </section>

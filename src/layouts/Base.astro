@@ -70,6 +70,10 @@ const webSite = {
         if (a) gtag('event', 'line_click', { link_url: a.href });
       });
     </script>
+    <!-- スクロール演出用。JSが動く環境だけ要素を隠すので、ここで先に印を付ける（表示のちらつき防止） -->
+    <script is:inline>
+      document.documentElement.classList.add('js');
+    </script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{pageTitle}</title>
@@ -106,5 +110,126 @@ const webSite = {
       <slot />
     </main>
     <Footer />
+
+    <!-- スクロールに合わせて、各ブロックを下からふわっと出す。
+         ファーストビュー（hero・page-header・記事タイトル）は対象外にして、表示速度を落とさない。
+         新しいセクションを足したときは、下の TARGETS に足すか、要素に data-reveal を付ける -->
+    <script is:inline>
+      (function () {
+        var TARGETS = [
+          '.section-title',
+          '.point-card',
+          '.case-card',
+          '.promise-card',
+          '.service-card',
+          '.service-featured img',
+          '.service-featured__body',
+          '.work-card',
+          '.price-card',
+          '.flow-card',
+          '.blog-card',
+          '.faq-item',
+          '.profile__photo',
+          '.profile__body',
+          '.ranking',
+          '.cases__hook',
+          '.article-body img',
+          '.cta-section .container > *',
+          '[data-reveal]',
+        ].join(',');
+
+        // 出方の指定。ここに載らないものは、カードなら reveal--card、それ以外は素の上がり方
+        var VARIANTS = [
+          ['.section-title', 'reveal--title'],
+          ['.profile__photo', 'reveal--left'],
+          ['.service-featured img', 'reveal--left'],
+          ['.profile__body', 'reveal--right'],
+          ['.service-featured__body', 'reveal--right'],
+        ];
+
+        function variantOf(el) {
+          for (var v = 0; v < VARIANTS.length; v++) {
+            if (el.matches(VARIANTS[v][0])) return VARIANTS[v][1];
+          }
+          return null;
+        }
+
+        var items = Array.prototype.slice.call(document.querySelectorAll(TARGETS));
+        if (!items.length) return;
+
+        // 見出しが先、そのあとカードが左から順に。同時に出ると「順番に出てきた感」が消える
+        items.forEach(function (el) {
+          var parent = el.parentElement;
+          var i = 0;
+          if (parent) {
+            i = parent.revealCount || 0;
+            parent.revealCount = i + 1;
+          }
+          var variant = variantOf(el);
+          // container 直下＝見出しなどは即スタート、カードの並びは見出しの後を追う
+          var isCard = !variant && !!(parent && !parent.classList.contains('container'));
+          var delay = (isCard ? 0.15 : 0) + Math.min(i, 5) * 0.1;
+          if (delay) el.style.setProperty('--reveal-delay', delay.toFixed(2) + 's');
+          el.classList.add('reveal');
+          if (variant) el.classList.add(variant);
+          else if (isCard) el.classList.add('reveal--card');
+        });
+
+        function revealAll() {
+          items.forEach(function (el) {
+            el.classList.add('is-revealed');
+          });
+        }
+
+        // IntersectionObserver が無い / 画面の高さが取れない環境（headlessのキャプチャ等）では
+        // 隠れたままにならないよう、最初から全部出しておく
+        if (!('IntersectionObserver' in window) || !window.innerHeight) {
+          revealAll();
+          return;
+        }
+
+        var io = new IntersectionObserver(
+          function (entries) {
+            entries.forEach(function (entry) {
+              if (!entry.isIntersecting) return;
+              entry.target.classList.add('is-revealed');
+              io.unobserve(entry.target);
+            });
+          },
+          // 要素が12%見えて、かつ画面に15%入ってから動き出す。
+          // 画面の端で動き終わってしまうと「気づかない」ので、少し内側で始める
+          { rootMargin: '0px 0px -15% 0px', threshold: 0.12 }
+        );
+
+        items.forEach(function (el) {
+          io.observe(el);
+        });
+
+        // ページ末尾は22%の線まで上がりきらないことがあるので、
+        // 最下部まで来たら残りを必ず出す（読めない要素を作らないための保険）
+        window.addEventListener(
+          'scroll',
+          function () {
+            var doc = document.documentElement;
+            if (window.scrollY + window.innerHeight >= doc.scrollHeight - 4) revealAll();
+          },
+          { passive: true }
+        );
+      })();
+    </script>
+
+    <!-- スクロールし始めたらヘッダーに影を付ける -->
+    <script is:inline>
+      (function () {
+        var header = document.querySelector('.header');
+        if (!header) return;
+
+        function update() {
+          header.classList.toggle('is-scrolled', window.scrollY > 24);
+        }
+        window.addEventListener('scroll', update, { passive: true });
+        update();
+      })();
+    </script>
   </body>
 </html>
