@@ -4,7 +4,7 @@ description: '会計ソフトにたまった未仕訳449件を、AI（Claude Cod
 pubDate: 2026-08-20
 category: case
 heroImage: '/assets/images/blog/thumb-kakutei-ai-01-pasokon-sousa.webp'
-draft: true
+draft: false
 series: 'kakutei-ai'
 seriesOrder: 1
 ---

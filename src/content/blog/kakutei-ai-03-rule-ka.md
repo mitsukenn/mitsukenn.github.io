@@ -1,10 +1,10 @@
 ---
 title: '未仕訳140件が一瞬で埋まった ― 「ルール化」という考え方'
 description: '会計ソフトの自動仕訳ルールをAIに94件作らせたら、未仕訳140件の科目が一瞬で埋まった話。今日の作業を速くするより、来年も効く仕組みを作るという考え方を紹介します。'
-pubDate: 2026-09-03
+pubDate: 2026-09-02
 category: case
 heroImage: '/assets/images/blog/thumb-kakutei-ai-03-rule-ka.webp'
-draft: true
+draft: false
 series: 'kakutei-ai'
 seriesOrder: 3
 ---
