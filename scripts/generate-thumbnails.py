@@ -37,6 +37,10 @@ PALETTES = {
 }
 
 ARTICLES = {
+    "kakutei-ai-01-pasokon-sousa":      ("確定申告 × AI", "未仕訳449件が、", "0件になった。"),
+    "kakutei-ai-02-kyonen-kyokasho":    ("確定申告 × AI", "AIの教科書は、", "去年の自分。"),
+    "kakutei-ai-03-rule-ka":            ("確定申告 × AI", "未仕訳140件が、", "一瞬で埋まった。"),
+    "kakutei-ai-04-go-taxi":            ("確定申告 × AI", "AIに足りないのは、", "土地の知識。"),
     "nakahira-taxi-story":             ("長崎の制作実績", "知らない人から、", "電話が鳴った。"),
     "nagasaki-ai-hojokin-junban":      ("長崎県の補助金", "長崎のAI補助金、", "結局この順番。"),
     "nagasaki-hojokin-calendar":       ("長崎県の補助金", "いま出せるもの、", "毎月更新。"),
