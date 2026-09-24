@@ -17,6 +17,14 @@ PARA_WARN, PARA_NG = 80, 100        # 1段落
 SEC_WARN, SEC_NG = 300, 350         # 1セクション
 LEAD_NG = 200                       # 見出しなしで続く冒頭の地の文
 
+# ---- 語り口（2026-09-24 オーナー決定「LINEより少し丁寧に」）----
+EXCL_PER_SEC = 2                    # 「！」は1節に2回まで
+YODOMI_PER_ARTICLE = 2              # 「、、」は1記事に2回まで
+KUDAKE = {                          # LINEの言い方 → 記事での言い方
+    "って感じ": "「という感じ」に", "かなと思ってます": "「かなと思います」に",
+    "？？": "「？」は1つ", "らしいです": "伝聞の口語は不可", "🙏": "絵文字は使わない",
+}
+
 # ---- 演出フレーズ（AIっぽさの正体。オーナー指摘済み）----
 ENSHUTSU = [
     "先に白状", "想像してみて", "見てほしいんです", "考えてみてください",
@@ -136,6 +144,10 @@ def check(path):
             add("警告", ln, f"1セクション{n}字「{h[:16]}」（疑似小見出しで区切ってあるが長い。分割を検討）")
         elif n > SEC_WARN and subs == 0:
             add("警告", ln, f"1セクション{n}字「{h[:16]}」（基準は250字前後）")
+        # 語り口（2026-09-24「LINEより少し丁寧に」）。「！」は1節2回まで
+        ex = body.count("！") + body.count("!")
+        if ex > EXCL_PER_SEC:
+            add("警告", ln, f"「！」が1節に{ex}回「{h[:16]}」（1節1〜2回まで）")
         # 「④ お金の話 ― たぶん、もう払っています」は現行の許容形なので26字までは通す
         if len(h) > 26:
             add("警告", ln, f"見出しが{len(h)}字「{h[:24]}」（長い文章型ではなくラベル調に）")
@@ -156,6 +168,11 @@ def check(path):
         for w in AISHU:
             if w in t:
                 add("警告", ln, f"AI臭マーカー「{w}」")
+        for w, fix in KUDAKE.items():
+            if w in t:
+                add("警告", ln, f"「{w}」は崩しすぎ（{fix}）")
+        if "→" in t and not l.lstrip().startswith(("|", "-", "*")):
+            add("参考", ln, "本文の「→」（LINE風に流れを矢印でつないでいないか。「今は〜 → AIなら〜」の対比は可）")
         if re.search(r"[^\s:：]+[:：] ", t) and "http" not in l:
             m = re.search(r"([^\s:：]{1,12}[:：] )", t)
             add("NG", ln, f"コロンでのラベル書き「{m.group(1).strip()}」（―区切り・（）・普通の文に）")
@@ -188,6 +205,9 @@ def check(path):
 
     # ---- 記事全体 ----
     body_all = "".join(visible(l) for _, l in rows)
+    yodomi = body_all.count("、、")
+    if yodomi > YODOMI_PER_ARTICLE:
+        add("警告", 1, f"「、、」が記事全体で{yodomi}回（1記事2回まで）")
     if not re.search(r"[0-9０-９]", body_all):
         add("参考", 1, "記事に数字が1つも無い（固有名詞・数字・自分の体験が無いのがAI臭の本質）")
     return ng

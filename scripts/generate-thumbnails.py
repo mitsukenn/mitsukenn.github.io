@@ -79,6 +79,7 @@ ARTICLES = {
     "folder-name-prompt":              ("フォルダ活用 ②", "フォルダ名は、", "いちばん短い指示書"),
     "ai-agent-folder-security":        ("フォルダ活用 ③", "AIに見せる範囲、", "どこまで？"),
     "ai-watashite-abunai-5tsu":        ("AIの安全な使い方", "危ないのは、", "この5つだけ。"),
+    "seikyusho-excel-story":           ("請求書作成を効率化", "20社分の請求書を", "一括で作れるように！"),
 }
 
 
